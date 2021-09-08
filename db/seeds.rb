@@ -15,13 +15,13 @@ categories = Category.create!([
   {title: 'general'},
 ])
 tests = Test.create!([
-  {title: 'Ruby базовый', level: 0, category_id: categories[1].id},
-  {title: 'Ruby продвинутый', level: 1, category_id: categories[1].id},
-  {title: 'Rails базовый', level: 1, category_id: categories[1].id},
-  {title: 'HTML', level: 1, category_id: categories[0].id},
-  {title: 'CSS', level: 2, category_id: categories[0].id},
-  {title: 'SQL', level: 2, category_id: categories[2].id},
-  {title: 'WEB', level: 0, category_id: categories[2].id}
+  {title: 'Ruby базовый', level: 0, category_id: categories[1].id, creator_id: users.sample.id},
+  {title: 'Ruby продвинутый', level: 1, category_id: categories[1].id, creator_id: users.sample.id},
+  {title: 'Rails базовый', level: 1, category_id: categories[1].id, creator_id: users.sample.id},
+  {title: 'HTML', level: 1, category_id: categories[0].id, creator_id: users.sample.id},
+  {title: 'CSS', level: 2, category_id: categories[0].id, creator_id: users.sample.id},
+  {title: 'SQL', level: 2, category_id: categories[2].id, creator_id: users.sample.id},
+  {title: 'WEB', level: 0, category_id: categories[2].id, creator_id: users.sample.id}
 ])
 questions = Question.create!([
   {body: 'Что такое CSS?', test_id: tests[4].id},
