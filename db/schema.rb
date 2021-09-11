@@ -43,11 +43,13 @@ ActiveRecord::Schema.define(version: 2021_09_08_211207) do
     t.integer "category_id", null: false
     t.integer "creator_id", null: false
     t.index ["category_id"], name: "index_tests_on_category_id"
+    t.index ["creator_id"], name: "index_tests_on_creator_id"
   end
 
   create_table "tests_users", id: false, force: :cascade do |t|
     t.integer "test_id", null: false
     t.integer "user_id", null: false
+    t.index ["test_id", "user_id"], name: "index_tests_users_on_test_id_and_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,4 +63,5 @@ ActiveRecord::Schema.define(version: 2021_09_08_211207) do
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
   add_foreign_key "tests", "categories"
+  add_foreign_key "tests", "users", column: "creator_id"
 end
