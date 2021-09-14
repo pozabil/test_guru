@@ -10,11 +10,9 @@ class Test < ApplicationRecord
   scope :easy, -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }
   scope :expert, -> { where(level: 5..Float::INFINITY) }
-  scope :filter_by_category, ->(category) {
-    joins(:category).where(categories: { title: category }).order(title: :desc)
-  }
+  scope :filter_by_category, ->(category) { joins(:category).where(categories: { title: category }) }
 
   def self.filtered_array_by_category(category)
-    filter_by_category(category).distinct.pluck(:title)
+    filter_by_category(category).order(title: :desc).distinct.pluck(:title)
   end
 end
