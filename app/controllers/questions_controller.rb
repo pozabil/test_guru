@@ -34,7 +34,7 @@ class QuestionsController < ApplicationController
 
   def destroy;
     @question.destroy
-    redirect_to test_questions_path
+    render inline: '<h1>ВОПРОС БЫЛ УДАЛЕН!</h1>'
   end
 
   private
