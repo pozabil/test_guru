@@ -16,7 +16,7 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
-    @test.assign_attributes(creator_id: 1) # позволяет создовать без юзера
+    @test.creator = User.first # Создаем все вопросы от лица первого юзера
 
     if @test.save
       redirect_to @test

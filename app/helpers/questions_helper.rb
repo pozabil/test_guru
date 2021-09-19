@@ -1,12 +1,12 @@
 module QuestionsHelper
   include GeneralHelper
 
-  def question_header(test)
-    "#{CREATE_OR_EDIT_HEADER_TEXT[controller.action_name.to_sym]} вопроса в тесте #{test.title}"
+  def question_header(question, test)
+    "#{CREATE_OR_EDIT_HEADER_TEXT[question.new_record?]} вопроса в тесте #{test.title}"
   end
 
-  def question_saver_text
-    "#{CREATE_OR_EDIT_SAVER_TEXT[controller.action_name.to_sym]} вопрос"
+  def question_saver_text(question)
+    "#{CREATE_OR_EDIT_SAVER_TEXT[question.new_record?]} вопрос"
   end
 
   def delete_question(question)

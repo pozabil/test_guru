@@ -1,10 +1,5 @@
 module GeneralHelper
-  CREATE_OR_EDIT_HEADER_TEXT = {
-    new: 'Создание нового', create: 'Создание нового',
-    edit: 'Редактирование', update: 'Редактирование'
-  }.freeze
+  CREATE_OR_EDIT_HEADER_TEXT = { true => 'Создание нового', false => 'Редактирование' }.freeze
 
-  CREATE_OR_EDIT_SAVER_TEXT = {
-    new: 'Создать', create: 'Создать', edit: 'Сохранить', update: 'Сохранить'
-  }.freeze
+  CREATE_OR_EDIT_SAVER_TEXT = { true => 'Создать', false => 'Сохранить' }.freeze
 end

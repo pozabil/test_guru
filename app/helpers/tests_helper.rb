@@ -9,12 +9,12 @@ module TestsHelper
 
   include GeneralHelper
 
-  def test_header
-    "#{CREATE_OR_EDIT_HEADER_TEXT[controller.action_name.to_sym]} теста"
+  def test_header(test)
+    "#{CREATE_OR_EDIT_HEADER_TEXT[test.new_record?]} теста"
   end
 
-  def test_saver_text
-    "#{CREATE_OR_EDIT_SAVER_TEXT[controller.action_name.to_sym]} вопрос"
+  def test_saver_text(test)
+    "#{CREATE_OR_EDIT_SAVER_TEXT[test.new_record?]} тест"
   end
 
   def delete_test(test)
