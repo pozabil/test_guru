@@ -1,0 +1,12 @@
+<%= form_with model: origin, local: true do |form| %>
+  <%= render 'shared/errors', resource: @question %>
+
+  <div>
+    <%= form.label :body, 'Текст вопроса:' %>
+    <%= form.text_field :body, size: 60 %>
+  </div><br>
+
+  <div>
+    <%= form.submit question_saver_text %>
+  </div>
+<% end %>

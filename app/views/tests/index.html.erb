@@ -1,0 +1,17 @@
+<h1> Список тестов </h1>
+
+<div>
+  <%= link_to 'Создать тест', new_test_path %>
+</div><br>
+
+<table>
+  <tr>
+	<th><strong>Название</strong></th>
+	<th><strong>Уровень</strong></th>
+  <th><strong>Категория</strong></th>
+  <th><strong>Кол-во вопросов</strong></th>
+  <th colspan='3'><strong>Действия</strong></th>
+  </tr>
+
+  <%= render @tests %>
+</table>

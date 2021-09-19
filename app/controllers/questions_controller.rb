@@ -1,26 +1,19 @@
 class QuestionsController < ApplicationController
 
-  before_action :find_test, only: %i[index create]
-  before_action :find_question, only: %i[show destroy]
+  before_action :find_test, only: %i[index new create]
+  before_action :find_question, only: %i[show edit update destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    render inline: '
-      <h1>Список вопросов теста "<%= @test.title %>"</h1>
-      <ul>
-        <% @test.questions.each do |question| %>
-          <li><%= question.body %></li>
-        <% end %>
-      </ul>
-    '
+    redirect_to test_path(@test)
   end
 
-  def show
-    render inline: '<h1><%= @question.body %></h1>'
-  end
+  def show; end
 
-  def new; end
+  def new
+    @question = Question.new
+  end
 
   def create;
     @question = @test.questions.new(question_params)
@@ -28,13 +21,27 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to test_questions_path
     else
-      render inline: '<h1>ОШИБКА! ВОПРОС НЕ БЫЛ СОХРАНЕН!</h1>'
+      render :new
+    end
+  end
+
+  def edit
+    @test = @question.test
+  end
+
+  def update
+    @test = @question.test
+
+    if @question.update(question_params)
+      redirect_to test_path(@question.test)
+    else
+      render :edit
     end
   end
 
   def destroy;
     @question.destroy
-    render inline: '<h1>ВОПРОС БЫЛ УДАЛЕН!</h1>'
+    redirect_to test_path(@question.test)
   end
 
   private

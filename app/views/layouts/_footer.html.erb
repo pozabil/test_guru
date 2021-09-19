@@ -1,0 +1,16 @@
+<%
+author = 'pozabil'
+author_name = 'Антон Гущин'
+project_title = 'TestGuru'
+project_description = 'преднозначен для создания, управления и выполнения различных тестов.'
+school_link_description = 'Учебный проект в онлайн-школе Thinknetica'
+school_link = 'https://thinknetica.com/'
+%>
+
+<footer align="center">
+	<%= year %>
+	<%= author_name %>.
+	Проект <%= github_url(author, project_title) %>
+	<%= project_description %>
+	<%= link_to school_link_description, school_link %>.
+</footer>

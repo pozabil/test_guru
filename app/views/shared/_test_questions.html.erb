@@ -1,0 +1,11 @@
+<div>
+  <strong>Список вопросов теста "<%= @test.title %>":</strong><br>
+  <table>
+    <tr>
+      <th><strong>Название</strong></th>
+      <th colspan='3'><strong>Действия</strong></th>
+    </tr>
+
+    <%= render @test.questions %>
+  </table>
+</div>
