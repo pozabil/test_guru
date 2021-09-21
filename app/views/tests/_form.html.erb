@@ -1,3 +1,5 @@
+<h1><%= test_header(@test) %></h1>
+
 <%= form_with model: @test, local: true do |form| %>
   <%= render 'shared/errors', resource: @test %>
 
@@ -20,3 +22,5 @@
     <%= form.submit test_saver_text(@test) %>
   </div>
 <% end %>
+
+<%= link_to 'Назад', tests_path %>

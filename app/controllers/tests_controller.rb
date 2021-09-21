@@ -15,8 +15,8 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = Test.new(test_params)
-    @test.creator = User.first # Создаем все вопросы от лица первого юзера
+    @user = User.first
+    @test = @user.created_tests.new(test_params)
 
     if @test.save
       redirect_to @test
