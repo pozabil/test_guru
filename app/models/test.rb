@@ -1,7 +1,7 @@
 class Test < ApplicationRecord
   belongs_to :category
   belongs_to :creator, class_name: 'User', inverse_of: 'created_tests'
-  has_many :questions
+  has_many :questions, dependent: :destroy
   has_and_belongs_to_many :users
 
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true

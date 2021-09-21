@@ -1,0 +1,23 @@
+<div><strong>Название:</strong>
+  <%= @test.title %>
+</div><br>
+
+<div><strong>Уровень:</strong>
+  <%= test_level(@test) %>
+</div><br>
+
+<div><strong>Категория:</strong>
+  <%= @test.category.title %>
+</div><br>
+
+<%= render 'shared/test_questions' %><br>
+
+<div>
+  <%= link_to 'Создать новый вопрос', new_test_question_path(@test) %>
+</div><br>
+
+<div>
+  | <%= link_to 'Назад', tests_path %>
+  | <%= link_to 'Редактировать', edit_test_path(@test) %>
+  | <%= delete_test(@test) %> |
+</div>

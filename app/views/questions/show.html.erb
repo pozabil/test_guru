@@ -1,0 +1,6 @@
+<h1><%= @question.body %></h1>
+<div>
+  | <%= link_to 'Назад', test_path(@question.test) %>
+  | <%= link_to 'Редактировать', edit_question_path(@question) %>
+  | <%= delete_question(@question) %> |
+</div>
