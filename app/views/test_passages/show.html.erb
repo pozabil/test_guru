@@ -1,0 +1,23 @@
+<h1>Прохождение теста "<%= @test_passage.test.title %>"</h1>
+
+<div>Ответье на вопрос:</div>
+<div><strong><%= @test_passage.current_question.body %></strong></div><br>
+
+<div>
+  <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+  	<%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
+  	<div>
+  	  <%= b.check_box id: "answer_ids_#{b.object.id}" %>
+  	  <%= b.label %>
+  	</div>
+  	<% end %><br>
+
+  	<div><%= form.submit 'Следующий вопрос' %></div>
+  <% end %>
+</div><br>
+
+<div>
+  Номер текущего вопроса: <%= @test_passage.current_question_number %>, общее количество вопросов в тесте: <%= @test_passage.test.questions.size %>
+</div><br>
+
+<%= link_to 'Выйти', tests_path %>

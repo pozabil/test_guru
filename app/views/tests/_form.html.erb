@@ -10,7 +10,7 @@
 
   <div>
     <%= form.label :level, 'Уровень теста:' %>
-    <%= form.text_field :level, id: :test_level, size: 60 %>
+    <%= form.text_field :level, id: :test_level, size: 6 %>
   </div><br>
 
   <div>
@@ -20,7 +20,7 @@
 
   <div>
     <%= form.submit test_saver_text(@test) %>
-  </div>
+  </div><br>
 <% end %>
 
 <%= link_to 'Назад', tests_path %>

@@ -2,7 +2,7 @@ module QuestionsHelper
   include GeneralHelper
 
   def question_header(question)
-    "#{CREATE_OR_EDIT_HEADER_TEXT[question.new_record?]} вопроса в тесте #{question.test.title}"
+    "#{CREATE_OR_EDIT_HEADER_TEXT[question.new_record?]} вопроса в тесте \"#{question.test.title}\""
   end
 
   def question_saver_text(question)

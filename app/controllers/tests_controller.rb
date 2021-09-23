@@ -1,8 +1,8 @@
 class TestsController < ApplicationController
+  before_action :find_test, only: %i[show edit update destroy start]
+  before_action :find_user, only: %i[create start]
 
-  before_action :find_test, only: %i[show edit update destroy]
-
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
     @tests = Test.all
@@ -15,7 +15,6 @@ class TestsController < ApplicationController
   end
 
   def create
-    @user = User.first
     @test = @user.created_tests.new(test_params)
 
     if @test.save
@@ -40,17 +39,26 @@ class TestsController < ApplicationController
     redirect_to tests_path
   end
 
+  def start
+    @user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
+  end
+
   private
 
   def find_test
     @test = Test.find(params[:id])
   end
 
+  def find_user
+    @user = User.first
+  end
+
   def test_params
     params.require(:test).permit(:title, :level, :category_id)
   end
 
-  def rescue_with_question_not_found
+  def rescue_with_test_not_found
     render inline: '<h1>ОШИБКА! ТЕСТ НЕ БЫЛ НАЙДЕН!</h1>'
   end
 end

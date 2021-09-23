@@ -1,0 +1,6 @@
+<% passage_message = @test_passage.success? ? 'успешно пройден' : 'не пройден' %>
+<% percent_color = @test_passage.success? ? 'green' : 'red' %>
+
+<h1>Тест "<%= @test_passage.test.title %>" <%= passage_message %> с результатом <font color=<%= percent_color %>><%= @test_passage.percentage_result %>%</font> !</h1>
+
+<%= link_to 'Вернуться к списку тестов', tests_path %>

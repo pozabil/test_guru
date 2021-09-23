@@ -1,0 +1,13 @@
+<% if @test.questions.size > 0 %>
+<div>
+  <strong><%= "Список вопросов теста \"#{@test.title}\":" %></strong><br>
+  <table>
+    <tr>
+      <th><b>Название</b></th>
+      <th colspan='3'><b>Действия</b></th>
+    </tr>
+
+    <%= render @test.questions %>
+  </table>
+</div><br>
+<% end %>

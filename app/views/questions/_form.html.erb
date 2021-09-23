@@ -4,13 +4,13 @@
   <%= render 'shared/errors', resource: @question %>
 
   <div>
-    <%= form.label :body, 'Текст вопроса:' %>
-    <%= form.text_field :body, size: 60 %>
+    <%= form.label :body, 'Текст вопроса:' %><br>
+    <%= form.text_area :body, size: '60x5' %>
   </div><br>
 
   <div>
     <%= form.submit question_saver_text(@question) %>
-  </div>
+  </div><br>
 <% end %>
 
 <%= link_to 'Назад', test_path(@question.test) %>

@@ -1,0 +1,14 @@
+<% if @question.answers.size > 0 %>
+<div>
+  <strong><%= "Список ответов на вопрос \"#{@question.body}\":" %></strong><br>
+  <table>
+    <tr>
+      <th><b>Ответ</b></th>
+      <th><b>Корректность</b></th>
+      <th colspan='2'><b>Действия</b></th>
+    </tr>
+
+    <%= render @question.answers %>
+  </table>
+</div><br>
+<% end %>
