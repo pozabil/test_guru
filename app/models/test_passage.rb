@@ -1,4 +1,6 @@
 class TestPassage < ApplicationRecord
+  WIN_PERCENTAGES = 85
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -20,7 +22,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    percentage_result >= 85
+    percentage_result >= WIN_PERCENTAGES
   end
 
   private
@@ -29,7 +31,7 @@ class TestPassage < ApplicationRecord
     return unless test.present?
 
     self.current_question = test.questions.order(:id).first
-    self.current_question_number += 1
+    self.current_question_number = 1
   end
 
   def before_update_next_question
