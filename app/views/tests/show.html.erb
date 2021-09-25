@@ -1,16 +1,14 @@
-<div><strong>Название:</strong>
-  <%= @test.title %>
-</div><br>
+<h1><%= @test.title %></h1>
 
-<div><strong>Уровень:</strong>
+<div><b>Уровень:</b>
   <%= test_level(@test) %>
 </div><br>
 
-<div><strong>Категория:</strong>
+<div><b>Категория:</b>
   <%= @test.category.title %>
 </div><br>
 
-<%= render 'shared/test_questions' %><br>
+<%= render 'test_questions' %>
 
 <div>
   <%= link_to 'Создать новый вопрос', new_test_question_path(@test) %>

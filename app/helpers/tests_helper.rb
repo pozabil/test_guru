@@ -1,11 +1,10 @@
 module TestsHelper
-
   TEST_LEVELS = {
     0 => 'Легкий',
     1 => 'Нормальный',
     2 => 'Продвинутый',
     3 => 'Сложный'
-  }
+  }.freeze
 
   include GeneralHelper
 
