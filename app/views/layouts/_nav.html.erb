@@ -1,7 +1,7 @@
 <nav align="right">
-  <%= home %>
-  <%= signup unless logged_in? || current_page?(signup_path) %>
-  <%= logged_in? ? logout : login unless current_page?(login_path) %>
+  <%= home_link %>
+  <%= signup_link unless logged_in? || current_page?(signup_path) %>
+  <%= logged_in? ? logout_link : login_link unless current_page?(login_path) %>
 </nav>
 
 <nav align="right">

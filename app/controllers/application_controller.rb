@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     unless current_user
       cookies[:redirect_path] = redirect_path
-      puts cookies[:redirect_path].inspect
       redirect_to login_path, notice: 'Пожалуйста авторизуйтесь'
     else
       delete_redirect_cookies
@@ -23,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_path
-    request.request_method_symbol != :delete ? request.path : parent_path(request.path)
+    request.request_method_symbol == :get ? request.path : parent_path(request.path)
   end
 
   def parent_path(path)

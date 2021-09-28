@@ -1,17 +1,17 @@
 module NavHelper
-  def home
+  def home_link
     link_to 'TestGuru', root_path
   end
 
-  def signup
+  def signup_link
     link_to 'Регистрация', signup_path
   end
 
-  def login
+  def login_link
     link_to 'Войти', login_path
   end
 
-  def logout
+  def logout_link
     link_to 'Выйти',
             logout_path,
             method: :delete,
