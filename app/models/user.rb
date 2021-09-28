@@ -4,8 +4,13 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
 
   validates :name, presence: true
-  validates :login, presence: true
-  validates :password, presence: true
+  validates :email, presence: true,
+                    format: { with: URI::MailTo::EMAIL_REGEXP },
+                    uniqueness: { case_sensitive: false }
+
+  has_secure_password
+
+  before_save :before_save_downcase_email
 
   def test_list_by_level(level)
     tests.where(level: level)
@@ -13,5 +18,11 @@ class User < ApplicationRecord
 
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)
+  end
+
+  private
+
+  def before_save_downcase_email
+    email.downcase!
   end
 end

@@ -1,0 +1,11 @@
+<nav align="right">
+  <%= home_link %>
+  <%= signup_link unless logged_in? || current_page?(signup_path) %>
+  <%= logged_in? ? logout_link : login_link unless current_page?(login_path) %>
+</nav>
+
+<nav align="right">
+  <% if logged_in? %>
+    Welcome, <b><%= current_user.name %></b> Guru
+  <% end %>
+</nav>
