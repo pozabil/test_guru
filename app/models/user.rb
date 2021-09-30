@@ -1,14 +1,18 @@
 class User < ApplicationRecord
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         :confirmable,
+         :trackable
+
   has_many :created_tests, class_name: 'Test', foreign_key: 'creator_id', inverse_of: 'creator'
   has_many :test_passages
   has_many :tests, through: :test_passages
 
-  validates :name, presence: true
-  validates :email, presence: true,
-                    format: { with: URI::MailTo::EMAIL_REGEXP },
-                    uniqueness: { case_sensitive: false }
-
-  has_secure_password
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
   before_save :before_save_downcase_email
 

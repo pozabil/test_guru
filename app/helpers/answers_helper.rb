@@ -11,7 +11,7 @@ module AnswersHelper
 
   def delete_answer(answer)
     link_to 'Удалить',
-            answer_path(answer),
+            admin_answer_path(answer),
             method: :delete,
             data: { confirm: 'Вы действительно хотите удалить этот ответ на вопрос?' }
   end

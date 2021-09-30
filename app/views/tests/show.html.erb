@@ -8,14 +8,13 @@
   <%= @test.category.title %>
 </div><br>
 
-<%= render 'test_questions' %>
-
-<div>
-  <%= link_to 'Создать новый вопрос', new_test_question_path(@test) %>
+<div><b>Автор:</b>
+  <td><%= @test.creator.first_name %> <%= @test.creator.last_name %></td>
 </div><br>
 
-<div>
-  | <%= link_to 'Назад', tests_path %>
-  | <%= link_to 'Редактировать', edit_test_path(@test) %>
-  | <%= delete_test(@test) %> |
-</div>
+<table>
+  <tr>
+    <td>| <%= link_to 'Назад', tests_path %> |</td>
+    <td><%= button_to 'Начать', start_test_path(@test) %></td>
+  </tr>
+</table>

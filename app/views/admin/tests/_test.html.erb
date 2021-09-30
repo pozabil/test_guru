@@ -4,7 +4,7 @@
   <td><%= test.category.title %></td>
   <td><%= test.questions.size %></td>
   <td><%= test.creator.first_name %> <%= test.creator.last_name %></td>
-  <td><%= link_to 'Открыть', test_path(test) %></td>
-  <td></td>
-  <td><%= button_to 'Начать', start_test_path(test) %></td>
+  <td><%= link_to 'Открыть', admin_test_path(test) %></td>
+  <td><%= link_to 'Редактировать', edit_admin_test_path(test) %></td>
+  <td><%= delete_test(test) %></td>
 </tr>

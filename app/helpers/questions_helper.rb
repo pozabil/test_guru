@@ -11,7 +11,7 @@ module QuestionsHelper
 
   def delete_question(question)
     link_to 'Удалить',
-            question_path(question),
+            admin_question_path(question),
             method: :delete,
             data: { confirm: 'Вы действительно хотите удалить этот вопрос?' }
   end

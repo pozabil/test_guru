@@ -1,0 +1,25 @@
+<h1><%= @test.title %></h1>
+
+<div><b>Уровень:</b>
+  <%= test_level(@test) %>
+</div><br>
+
+<div><b>Категория:</b>
+  <%= @test.category.title %>
+</div><br>
+
+<div><b>Автор:</b>
+  <td><%= @test.creator.first_name %> <%= @test.creator.last_name %></td>
+</div><br>
+
+<%= render 'test_questions' %>
+
+<div>
+  <%= link_to 'Создать новый вопрос', new_admin_test_question_path(@test) %>
+</div><br>
+
+<div>
+  | <%= link_to 'Назад', admin_tests_path %>
+  | <%= link_to 'Редактировать', edit_admin_test_path(@test) %>
+  | <%= delete_test(@test) %> |
+</div>
