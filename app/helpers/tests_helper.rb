@@ -18,9 +18,9 @@ module TestsHelper
 
   def delete_test(test)
     link_to 'Удалить',
-            test_path(test),
+            admin_test_path(test),
             method: :delete,
-            data: { confirm: logged_in? ? 'Вы действительно хотите удалить этот тест?' : nil }
+            data: { confirm: user_signed_in? ? 'Вы действительно хотите удалить этот тест?' : nil }
   end
 
   def test_level(test)

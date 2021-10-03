@@ -1,38 +1,17 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user,
-                :logged_in?
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
 
-  def authenticate_user!
-    unless current_user
-      cookies[:redirect_path] = redirect_path
-      redirect_to login_path, notice: 'Пожалуйста авторизуйтесь'
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+  end
+
+  def after_sign_in_path_for(resource)
+    if resource.admin?
+      admin_root_path
     else
-      delete_redirect_cookies
+      super
     end
-  end
-
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-
-  def logged_in?
-    current_user.present?
-  end
-
-  def redirect_path
-    request.request_method_symbol == :get ? request.path : parent_path(request.path)
-  end
-
-  def parent_path(path)
-    until path.last == '/'
-      path.chop!
-    end
-    path
-  end
-
-  def delete_redirect_cookies
-    cookies.delete :redirect_path if cookies[:redirect_path].present?
   end
 end
