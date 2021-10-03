@@ -24,6 +24,10 @@ class User < ApplicationRecord
     test_passages.order(id: :desc).find_by(test_id: test.id)
   end
 
+  def admin?
+    is_a?(Admin)
+  end
+
   private
 
   def before_save_downcase_email

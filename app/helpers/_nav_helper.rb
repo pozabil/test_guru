@@ -1,6 +1,6 @@
 module NavHelper
   def home_link
-    link_to 'TestGuru', root_path
+    link_to 'TestGuru', (current_user.present? && current_user.admin?) ? admin_root_path : root_path
   end
 
   def signup_link
