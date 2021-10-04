@@ -22,6 +22,6 @@ class TestsController < ApplicationController
   end
 
   def rescue_with_test_not_found
-    render inline: '<h1>ОШИБКА! ТЕСТ НЕ БЫЛ НАЙДЕН!</h1>'
+    render inline: t('errors.test_not_found')
   end
 end

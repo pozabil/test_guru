@@ -1,33 +1,173 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  login: "Login"
+  logout: "Logout"
+  signup: "Signup"
+  logout_confirm: "Do you really want to logout?"
+  open: "Open"
+  back: "Back"
+  exit: "Exit"
+  edit: "Edit"
+  delete: "Delete"
+  start: "Start"
+
+  errors:
+    test_not_found: "<h1>ERROR! TEST NOT FOUND!</h1>"
+    answer_not_found: "<h1>ERROR! ANSWER NOT FOUND!</h1>"
+    question_not_found: "<h1>ERROR! QUESTION NOT FOUND!</h1>"
+
+  helpers:
+    submit:
+      answer:
+        create: "Create an answer to a question"
+        update: "Create the answer to the question"
+      question:
+        create: "Create question"
+        update: "Save question"
+      test:
+        create: "Create test"
+        update: "Save test"
+
+    label:
+      answer:
+        body: "Answer body:"
+        correct: "Correct:"
+      question:
+        body: "Question body:"
+      test:
+        title: "Test title:"
+        level: "Test level:"
+        category_id: "Test category:"
+
+    select:
+      prompt: "Please select"
+
+    answers_helper:
+      delete_confirmation: "Are you sure you want to delete this answer to the question?"
+
+    questions_helper:
+      delete_confirmation: "Are you sure you want to delete this question?"
+
+    tests_helper:
+      delete_confirmation: "Are you sure you want to delete this test?"
+
+    test_passages_helper:
+      success: "Test \"%{test_title}\" has been successfully completed with a result of"
+      failure: "Test \"%{test_title}\" has been failed with a result of"
+
+  test_levels:
+    easy: "Easy"
+    normal: "Normal"
+    advanced: "Advanced"
+    hard: "Hard"
+    heroic: "Heroic"
+
+  tests:
+    index:
+      header: "Test list"
+      title: "Title"
+      level: "Level"
+      category: "Category"
+      questions_count: "Questions count"
+      author: "Author"
+      actions: "Actions"
+    show:
+      level_html: "<b>Level:</b> %{level}"
+      category_html: "<b>Category:</b> %{category}"
+      author_html: "<b>Author:</b> %{author}"
+
+  test_passages:
+    result:
+      back_to_tests: "Return to test list"
+    show:
+      header: "Passing the \"%{title}\" test"
+      answer_the_question: "Answer the question:"
+      next_question: "Next question"
+      current_question_number: "Current question number:"
+      questions_count: "Total numbers of questions in the test:"
+
+  shared:
+    errors:
+      header:
+        one: "Fail. %{count} error detected."
+        other: "Fail. %{count} errors detected."
+
+  layouts:
+    footer:
+      author_name: "Anton Guschin"
+      project: "Project"
+      project_description: "is designed to create, manage and pass various tests."
+      school_link_description: "Study project at Thinknetica online school"
+
+  admin:
+    answers:
+      new:
+        header: "Creating a new answer to the question \"%{question_body}\""
+      edit:
+        header: "Editing the answer to the question \"%{question_body}\""
+      show:
+        header: "Answer to the question \"%{question_body}\""
+        answer_correct: "Answer is correct"
+        answer_not_correct: "Answer is not correct"
+      create:
+        success: "Answer \"%{answer_body}\" successfully created"
+      update:
+        success: "Answer \"%{answer_body}\" successfully edited"
+      destroy:
+        success: "Answe \"%{answer_body}\" successfully deleted"
+    nav:
+      header: "Admin panel"
+
+    questions:
+      new:
+        header: "Creating a new question in the test \"%{test_title}\""
+      edit:
+        header: "Editing the question in the test \"%{test_title}\""
+      show:
+        header: "Question in the test \"%{test_title}\""
+        create_answer: "Create a new answer to a question"
+      question_answers:
+        table_title: "List of answers to the question \"%{question_body}\":"
+        answer: "Answer"
+        correct: "Correct"
+        actions: "Actions"
+      create:
+        success: "Question \"%{question_body}\" successfully created"
+      update:
+        success: "Question \"%{question_body}\" successfully edited"
+      destroy:
+        success: "Question \"%{question_body}\" successfully deleted"
+
+    tests:
+      index:
+        header: "Test list"
+        title: "Title"
+        level: "Level"
+        category: "Category"
+        questions_count: "Questions count"
+        author: "Author"
+        actions: "Actions"
+        create_test: "Create test"
+      new:
+        header: "Creating a new test"
+      edit:
+        header: "Editing the test"
+      show:
+        level_html: "<b>Level:</b> %{level}"
+        category_html: "<b>Category:</b> %{category}"
+        author_html: "<b>Author:</b> %{author}"
+        create_question: "Create a new question"
+      test_questions:
+        table_title: "List of questions in the test \"%{test_title}\":"
+        title: "Title"
+        actions: "Actions"
+      create:
+        success: "Test \"%{test_title}\" successfully created"
+      update:
+        success: "Test \"%{test_title}\" successfully edited"
+      destroy:
+        success: "Test \"%{test_title}\" successfully deleted"
+
+  users:
+    sessions:
+      create:
+        hello: "Hello, %{full_name}!"

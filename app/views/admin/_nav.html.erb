@@ -1,5 +1,5 @@
 <div class='admin_nav' align="right">
-  <h1 class='admin_nav' align="right">Панель администратора</h1>
+  <h1 class='admin_nav' align="right"><%= t('.header') %></h1>
   <%= home_link %>
   <%= signup_link unless user_signed_in? || current_page?(new_user_registration_path) %>
   <%= user_signed_in? ? logout_link : login_link unless current_page?(new_user_session_path) %>
@@ -7,6 +7,6 @@
 
 <div class='admin_nav' align="right">
   <% if user_signed_in? %>
-    Welcome, <b><%= current_user.first_name %> <%= current_user.last_name %></b> Guru
+    Welcome, <b><%= current_user.full_name %></b> Guru
   <% end %>
 </div>

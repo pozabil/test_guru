@@ -17,7 +17,7 @@ class Admin::TestsController < Admin::BaseController
     @test = current_user.created_tests.new(test_params)
 
     if @test.save
-      redirect_to [:admin, @test]
+      redirect_to [:admin, @test], notice: t('.success', test_title: @test.title)
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      redirect_to [:admin, @test]
+      redirect_to [:admin, @test], notice: t('.success', test_title: @test.title)
     else
       render :new
     end
@@ -35,7 +35,7 @@ class Admin::TestsController < Admin::BaseController
 
   def destroy
     @test.destroy
-    redirect_to admin_tests_path
+    redirect_to admin_tests_path, alert: t('.success', test_title: @test.title)
   end
 
   private
@@ -49,6 +49,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def rescue_with_test_not_found
-    render inline: '<h1>ОШИБКА! ТЕСТ НЕ БЫЛ НАЙДЕН!</h1>'
+    render inline: t('errors.test_not_found')
   end
 end

@@ -1,29 +1,18 @@
 module TestsHelper
-  TEST_LEVELS = {
-    0 => 'Легкий',
-    1 => 'Нормальный',
-    2 => 'Продвинутый',
-    3 => 'Сложный'
-  }.freeze
-
-  include GeneralHelper
-
-  def test_header(test)
-    "#{CREATE_OR_EDIT_HEADER_TEXT[test.new_record?]} теста"
-  end
-
-  def test_saver_text(test)
-    "#{CREATE_OR_EDIT_SAVER_TEXT[test.new_record?]} тест"
-  end
-
   def delete_test(test)
-    link_to 'Удалить',
+    link_to t('delete'),
             admin_test_path(test),
             method: :delete,
-            data: { confirm: user_signed_in? ? 'Вы действительно хотите удалить этот тест?' : nil }
+            data: { confirm: user_signed_in? ? t('helpers.tests_helper.delete_confirmation') : nil }
   end
 
   def test_level(test)
-    TEST_LEVELS[test.level] || 'Героический'
+    test_levels = {
+      0 => t('test_levels.easy'),
+      1 => t('test_levels.normal'),
+      2 => t('test_levels.advanced'),
+      3 => t('test_levels.hard')
+    }
+    test_levels[test.level] || t('test_levels.heroic')
   end
 end

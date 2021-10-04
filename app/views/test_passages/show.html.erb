@@ -1,6 +1,6 @@
-<h1>Прохождение теста "<%= @test_passage.test.title %>"</h1>
+<h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
-<div>Ответье на вопрос:</div>
+<div><%= t('.answer_the_question') %></div>
 <div><strong><%= @test_passage.current_question.body %></strong></div><br>
 
 <div>
@@ -12,12 +12,13 @@
   	</div>
   	<% end %><br>
 
-  	<div><%= form.submit 'Следующий вопрос' %></div>
+  	<div><%= form.submit t('.next_question') %></div>
   <% end %>
 </div><br>
 
 <div>
-  Номер текущего вопроса: <%= @test_passage.current_question_number %>, общее количество вопросов в тесте: <%= @test_passage.test.questions.size %>
+  <%= t('.current_question_number') %> <%= @test_passage.current_question_number %>,
+  <%= t('.questions_count') %> <%= @test_passage.test.questions.size %>
 </div><br>
 
-<%= link_to 'Выйти', tests_path %>
+<%= link_to t('exit'), tests_path %>

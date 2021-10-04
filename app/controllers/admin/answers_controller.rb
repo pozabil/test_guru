@@ -14,7 +14,7 @@ class Admin::AnswersController < Admin::BaseController
     @answer = @question.answers.new(answer_params)
 
     if @answer.save
-      redirect_to [:admin, @answer.question]
+      redirect_to [:admin, @answer.question], notice: t('.success', answer_body: @answer.body)
     else
       render :new
     end
@@ -24,7 +24,7 @@ class Admin::AnswersController < Admin::BaseController
 
   def update
     if @answer.update(answer_params)
-      redirect_to [:admin, @answer.question]
+      redirect_to [:admin, @answer.question], notice: t('.success', answer_body: @answer.body)
     else
       render :edit
     end
@@ -32,7 +32,7 @@ class Admin::AnswersController < Admin::BaseController
 
   def destroy
     @answer.destroy
-    redirect_to [:admin, @answer.question]
+    redirect_to [:admin, @answer.question], alert: t('.success', answer_body: @answer.body)
   end
 
   private
@@ -50,6 +50,6 @@ class Admin::AnswersController < Admin::BaseController
   end
 
   def rescue_with_answer_not_found
-    render inline: '<h1>ОШИБКА! ОТВЕТ НЕ БЫЛ НАЙДЕН!</h1>'
+    render inline: t('errors.answer_not_found')
   end
 end

@@ -2,13 +2,12 @@ module TestPassagesHelper
   def result_message(test_passage)
     passage_message, percent_color =
       if test_passage.success?
-        ['успешно пройден', 'green']
+        [t('helpers.test_passages_helper.success', test_title: test_passage.test.title), 'green']
       else
-        ['не пройден', 'red']
+        [t('helpers.test_passages_helper.failure', test_title: test_passage.test.title), 'red']
       end
 
-    message = "Тест \"#{test_passage.test.title}\" #{passage_message} с результатом" \
-    " <font color=#{percent_color}>#{test_passage.percentage_result}%</font> !"
+    message = "#{passage_message} <font color=#{percent_color}>#{test_passage.percentage_result}%</font> !"
     content_tag(:h1, message.html_safe)
   end
 end

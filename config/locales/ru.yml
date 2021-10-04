@@ -1,33 +1,175 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 ru:
-  hello: "Привет мир"
+  login: "Войти"
+  logout: "Выйти"
+  signup: "Регистрация"
+  logout_confirm: "Вы действительно хотите выйти?"
+  open: "Открыть"
+  back: "Назад"
+  exit: "Выйти"
+  edit: "Редактировать"
+  delete: "Удалить"
+  start: "Начать"
+
+  errors:
+    test_not_found: "<h1>ОШИБКА! ТЕСТ НЕ БЫЛ НАЙДЕН!</h1>"
+    answer_not_found: "<h1>ОШИБКА! ОТВЕТ НЕ БЫЛ НАЙДЕН!</h1>"
+    question_not_found: "<h1>ОШИБКА! ВОПРОС НЕ БЫЛ НАЙДЕН!</h1>"
+
+  helpers:
+    submit:
+      answer:
+        create: "Создать ответ на вопрос"
+        update: "Сохранить ответ на вопрос"
+      question:
+        create: "Создать вопрос"
+        update: "Сохранить вопрос"
+      test:
+        create: "Создать тест"
+        update: "Сохранить тест"
+
+    label:
+      answer:
+        body: "Текст ответа:"
+        correct: "Корректность:"
+      question:
+        body: "Текст вопроса:"
+      test:
+        title: "Название теста:"
+        level: "Уровень теста:"
+        category_id: "Категория теста:"
+
+    select:
+      prompt: "Пожалуйста выберите"
+
+    answers_helper:
+      delete_confirmation: "Вы действительно хотите удалить этот ответ на вопрос?"
+
+    questions_helper:
+      delete_confirmation: "Вы действительно хотите удалить этот вопрос?"
+
+    tests_helper:
+      delete_confirmation: "Вы действительно хотите удалить этот тест?"
+
+    test_passages_helper:
+      success: "Тест \"%{test_title}\" успешно пройден с результатом"
+      failure: "Тест \"%{test_title}\" не пройден с результатом"
+
+  test_levels:
+    easy: "Легкий"
+    normal: "Нормальный"
+    advanced: "Продвинутый"
+    hard: "Сложный"
+    heroic: "Героический"
+
+  tests:
+    index:
+      header: "Список тестов"
+      title: "Название"
+      level: "Уровень"
+      category: "Категория"
+      questions_count: "Кол-во вопросов"
+      author: "Автор"
+      actions: "Действия"
+    show:
+      level_html: "<b>Уровень:</b> %{level}"
+      category_html: "<b>Категория:</b> %{category}"
+      author_html: "<b>Автор:</b> %{author}"
+
+  test_passages:
+    result:
+      back_to_tests: "Вернуться к списку тестов"
+    show:
+      header: "Прохождение теста \"%{title}\""
+      answer_the_question: "Ответьте на вопрос:"
+      next_question: "Следующий вопрос"
+      current_question_number: "Номер текущего вопроса:"
+      questions_count: "общее количество вопросов в тесте:"
+
+  shared:
+    errors:
+      header:
+        few: "Неудачно. Обнаружены %{count} ошибки."
+        many: "Неудачно. Обнаружены %{count} ошибок."
+        one: "Неудачно. Обнаружена %{count} ошибка."
+        other: "Неудачно. Обнаружены %{count} ошибки."
+
+  layouts:
+    footer:
+      author_name: "Антон Гущин"
+      project: "Проект"
+      project_description: "преднозначен для создания, управления и выполнения различных тестов."
+      school_link_description: "Учебный проект в онлайн-школе Thinknetica"
+
+  admin:
+    answers:
+      new:
+        header: "Создание нового ответа на вопрос \"%{question_body}\""
+      edit:
+        header: "Редактирование ответа на вопрос \"%{question_body}\""
+      show:
+        header: "Ответ на вопрос \"%{question_body}\""
+        answer_correct: "Ответ корректный"
+        answer_not_correct: "Ответ некорректный"
+      create:
+        success: "Ответ \"%{answer_body}\" успешно создан"
+      update:
+        success: "Ответ \"%{answer_body}\" отредактирован"
+      destroy:
+        success: "Ответ \"%{answer_body}\" был удален"
+    nav:
+      header: "Панель администратора"
+
+    questions:
+      new:
+        header: "Создание нового вопроса в тесте \"%{test_title}\""
+      edit:
+        header: "Редактирование вопроса в тесте \"%{test_title}\""
+      show:
+        header: "Вопрос в тесте \"%{test_title}\""
+        create_answer: "Создать новый ответ на вопрос"
+      question_answers:
+        table_title: "Список ответов на вопрос \"%{question_body}\":"
+        answer: "Ответ"
+        correct: "Корректность"
+        actions: "Действия"
+      create:
+        success: "Вопрос \"%{question_body}\" успешно создан"
+      update:
+        success: "Вопрос \"%{question_body}\" отредактирован"
+      destroy:
+        success: "Вопрос \"%{question_body}\" был удален"
+
+    tests:
+      index:
+        header: "Список тестов"
+        title: "Название"
+        level: "Уровень"
+        category: "Категория"
+        questions_count: "Кол-во вопросов"
+        author: "Автор"
+        actions: "Действия"
+        create_test: "Создать тест"
+      new:
+        header: "Создание нового теста"
+      edit:
+        header: "Редактирование теста"
+      show:
+        level_html: "<b>Уровень:</b> %{level}"
+        category_html: "<b>Категория:</b> %{category}"
+        author_html: "<b>Автор:</b> %{author}"
+        create_question: "Создать новый вопрос"
+      test_questions:
+        table_title: "Список вопросов теста \"%{test_title}\":"
+        title: "Название"
+        actions: "Действия"
+      create:
+        success: "Тест \"%{test_title}\" успешно создан"
+      update:
+        success: "Тест \"%{test_title}\" отредактирован"
+      destroy:
+        success: "Тест \"%{test_title}\" был удален"
+
+  users:
+    sessions:
+      create:
+        hello: "Привет, %{full_name}!"

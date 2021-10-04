@@ -9,7 +9,7 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super
-    flash[:notice] = "Привет, #{current_user.first_name} #{current_user.last_name}!"
+    flash[:notice] = t('.hello', full_name: current_user.full_name)
   end
 
   # DELETE /resource/sign_out

@@ -1,20 +1,14 @@
 <h1><%= @test.title %></h1>
 
-<div><b>Уровень:</b>
-  <%= test_level(@test) %>
-</div><br>
+<div><%= t('.level_html', level: test_level(@test)) %></div><br>
 
-<div><b>Категория:</b>
-  <%= @test.category.title %>
-</div><br>
+<div><%= t('.category_html', category: @test.category.title) %></div><br>
 
-<div><b>Автор:</b>
-  <td><%= @test.creator.first_name %> <%= @test.creator.last_name %></td>
-</div><br>
+<div><%= t('.author_html', author: @test.creator.full_name) %></div><br>
 
 <table>
   <tr>
-    <td>| <%= link_to 'Назад', tests_path %> |</td>
-    <td><%= button_to 'Начать', start_test_path(@test) %></td>
+    <td>| <%= link_to t('back'), tests_path %> |</td>
+    <td><%= button_to t('start'), start_test_path(@test) %></td>
   </tr>
 </table>
