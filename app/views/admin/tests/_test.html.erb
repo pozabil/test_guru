@@ -3,8 +3,8 @@
   <td><%= test_level(test) %></td>
   <td><%= test.category.title %></td>
   <td><%= test.questions.size %></td>
-  <td><%= test.creator.first_name %> <%= test.creator.last_name %></td>
-  <td><%= link_to 'Открыть', admin_test_path(test) %></td>
-  <td><%= link_to 'Редактировать', edit_admin_test_path(test) %></td>
+  <td><%= test.creator.full_name %></td>
+  <td><%= link_to t('open'), admin_test_path(test) %></td>
+  <td><%= link_to t('edit'), edit_admin_test_path(test) %></td>
   <td><%= delete_test(test) %></td>
 </tr>

@@ -4,17 +4,17 @@ module NavHelper
   end
 
   def signup_link
-    link_to 'Регистрация', new_user_registration_path
+    link_to t('signup'), new_user_registration_path
   end
 
   def login_link
-    link_to 'Войти', new_user_session_path
+    link_to t('login'), new_user_session_path
   end
 
   def logout_link
-    link_to 'Выйти',
+    link_to t('logout'),
             destroy_user_session_path,
             method: :delete,
-            data: { confirm: 'Вы действительно хотите выйти?' }
+            data: { confirm: t('logout_confirm') }
   end
 end

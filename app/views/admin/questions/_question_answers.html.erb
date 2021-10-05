@@ -1,11 +1,11 @@
 <% if @question.answers.size > 0 %>
 <div>
-  <strong><%= "Список ответов на вопрос \"#{@question.body}\":" %></strong><br>
+  <strong><%= t('.table_title', question_body: @question.body) %></strong><br>
   <table>
     <tr>
-      <th><b>Ответ</b></th>
-      <th><b>Корректность</b></th>
-      <th colspan='2'><b>Действия</b></th>
+      <th><b><%= t('.answer') %></b></th>
+      <th><b><%= t('.correct') %></b></th>
+      <th colspan='2'><b><%= t('.actions') %></b></th>
     </tr>
 
     <%= render @question.answers %>

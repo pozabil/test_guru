@@ -1,10 +1,10 @@
 <% if @test.questions.size > 0 %>
 <div>
-  <strong><%= "Список вопросов теста \"#{@test.title}\":" %></strong><br>
+  <strong><%= t('.table_title', test_title: @test.title) %></strong><br>
   <table>
     <tr>
-      <th><b>Название</b></th>
-      <th colspan='3'><b>Действия</b></th>
+      <th><b><%= t('.title') %></b></th>
+      <th colspan='3'><b><%= t('.actions') %></b></th>
     </tr>
 
     <%= render @test.questions %>
