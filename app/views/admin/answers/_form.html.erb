@@ -1,17 +1,19 @@
 <%= form_with model: [:admin, @question, @answer], local: true do |form| %>
   <%= render 'shared/errors', resource: @answer %>
 
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body, size: '60x5' %>
-  </div><br>
+  <div class="ms-1 mb-1">
+    <p>
+      <%= form.label :body %>
+      <%= form.text_area :body, class: "form-control", style: "resize:none; max-width: 540px; height: 8em;" %>
+    </p>
 
-  <div>
-    <%= form.label :correct %>
-    <%= form.check_box :correct, id: :answer_correct %>
-  </div><br>
+    <div class="form-check mb-2">
+      <%= form.label :correct, class: 'form-check-label float-start', style: 'margin-left: -20px; margin-right: 30px;' %>
+      <%= form.check_box :correct, id: :answer_correct, class: 'form-check-input' %>
+    </div>
 
-  <div>
-    <%= form.submit %>
-  </div><br>
+    <div>
+      <%= form.submit class: "btn btn-success"%>
+    </div>
+  </div>
 <% end %>

@@ -17,7 +17,8 @@ class Admin::TestsController < Admin::BaseController
     @test = current_user.created_tests.new(test_params)
 
     if @test.save
-      redirect_to [:admin, @test], notice: t('.success', test_title: @test.title)
+      flash[:success] = t('.success', test_title: @test.title)
+      redirect_to [:admin, @test]
     else
       render :new
     end
@@ -27,7 +28,8 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      redirect_to [:admin, @test], notice: t('.success', test_title: @test.title)
+      flash[:success] = t('.success', test_title: @test.title)
+      redirect_to [:admin, @test]
     else
       render :new
     end

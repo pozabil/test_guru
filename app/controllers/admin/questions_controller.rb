@@ -14,7 +14,8 @@ class Admin::QuestionsController < Admin::BaseController
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to [:admin, @question], notice: t('.success', question_body: @question.body)
+      flash[:success] = t('.success', question_body: @question.body)
+      redirect_to [:admin, @question]
     else
       render :new
     end
@@ -24,7 +25,8 @@ class Admin::QuestionsController < Admin::BaseController
 
   def update
     if @question.update(question_params)
-      redirect_to [:admin, @question], notice: t('.success', question_body: @question.body)
+      flash[:success] = t('.success', question_body: @question.body)
+      redirect_to [:admin, @question]
     else
       render :edit
     end

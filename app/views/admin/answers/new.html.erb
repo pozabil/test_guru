@@ -1,3 +1,9 @@
-<h1><%= t('.header', question_body: @answer.question.body) %></h1>
-<%= render 'form' %>
-<%= link_to t('back'), admin_question_path(@answer.question) %>
+<div class="row justify-content-center">
+  <div class="col col-lg-8 col-md-10 ms-1">
+    <div class="h1 mt-2 mb-4"><%= t('.header', question_body: @answer.question.body) %></div>
+
+    <%= render 'form' %>
+
+    <div class="ms-1"><%= link_to t('back'), admin_question_path(@answer.question), class: "link-secondary" %></div>
+  </div>
+</div>

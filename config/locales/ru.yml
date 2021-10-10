@@ -2,6 +2,7 @@ ru:
   login: "Войти"
   logout: "Выйти"
   signup: "Регистрация"
+  edit_user: "Настройки"
   logout_confirm: "Вы действительно хотите выйти?"
   open: "Открыть"
   back: "Назад"
@@ -88,16 +89,15 @@ ru:
   shared:
     errors:
       header:
+        one: "Неудачно. Обнаружена %{count} ошибка."
         few: "Неудачно. Обнаружены %{count} ошибки."
         many: "Неудачно. Обнаружены %{count} ошибок."
-        one: "Неудачно. Обнаружена %{count} ошибка."
         other: "Неудачно. Обнаружены %{count} ошибки."
 
-  layouts:
     footer:
       author_name: "Антон Гущин"
       project: "Проект"
-      project_description: "преднозначен для создания, управления и выполнения различных тестов."
+      project_description: "преднозначен для создания, управления и выполнения различных тестов"
       school_link_description: "Учебный проект в онлайн-школе Thinknetica"
 
   admin:

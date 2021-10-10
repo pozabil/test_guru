@@ -1,3 +1,9 @@
-<h1><%= t('.header') %></h1>
-<%= render 'form' %>
-<%= link_to t('back'), admin_tests_path %>
+<div class="row justify-content-center">
+  <div class="col col-lg-8 col-md-10 ms-1">
+    <div class="h1 mt-2 mb-4"><%= t('.header') %></div>
+
+    <%= render 'form' %>
+
+    <div class="ms-1"><%= link_to t('back'), admin_tests_path, class: "link-secondary" %></div>
+  </div>
+</div>

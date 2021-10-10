@@ -1,13 +1,13 @@
 <% if @test.questions.size > 0 %>
-<div>
-  <strong><%= t('.table_title', test_title: @test.title) %></strong><br>
-  <table>
-    <tr>
-      <th><b><%= t('.title') %></b></th>
-      <th colspan='3'><b><%= t('.actions') %></b></th>
-    </tr>
+  <div>
+    <div class="fs-4 mt-2 mb-3"><b><%= t('.table_title', test_title: @test.title) %></b></div>
+    <table class="table table-hover text-wrap align-middle">
+      <tr>
+        <th scope="col"><%= t('.title') %></th>
+        <th scope="col", colspan='3'><%= t('.actions') %></th>
+      </tr>
 
-    <%= render @test.questions %>
-  </table>
-</div><br>
+      <%= render @test.questions %>
+    </table>
+  </div>
 <% end %>

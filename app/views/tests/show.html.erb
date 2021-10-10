@@ -1,14 +1,18 @@
-<h1><%= @test.title %></h1>
+<div class="row justify-content-center">
+  <div class="col col-lg-8 ms-1">
+    <div class="h1 mt-2 mb-4"><%= @test.title %></div>
+    <div>
+      <p><%= t('.level_html', level: test_level(@test)) %></p>
+      <p><%= t('.category_html', category: @test.category.title) %></p>
+      <p><%= t('.author_html', author: @test.creator.full_name) %></p>
+    </div>
 
-<div><%= t('.level_html', level: test_level(@test)) %></div><br>
-
-<div><%= t('.category_html', category: @test.category.title) %></div><br>
-
-<div><%= t('.author_html', author: @test.creator.full_name) %></div><br>
-
-<table>
-  <tr>
-    <td>| <%= link_to t('back'), tests_path %> |</td>
-    <td><%= button_to t('start'), start_test_path(@test) %></td>
-  </tr>
-</table>
+    <table>
+      <tr>
+        <td><%= link_to t('back'), tests_path, class: "link-secondary" %></td>
+        <td></td><td>|</td><td></td>
+        <td><%= button_to t('start'), start_test_path(@test), class: "btn btn-success" %></td>
+      </tr>
+    </table>
+  </div>
+</div>

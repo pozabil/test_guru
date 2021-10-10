@@ -1,17 +1,11 @@
-.flash {
-  border: 2px solid;
-  padding: 10px;
-  width: max-content;
-  border-radius: 5px;
-  text-align:center;
+.flash-alert {
+  @extend .alert-danger !optional
 }
 
-.flash.alert {
-  border-color: #ff6460;
-  background: #ffddbb;
+.flash-notice {
+  @extend .alert-primary !optional
 }
 
-.flash.notice {
-  border-color: #5d9eb0;
-  background: #ffddbb;
+.flash-success {
+  @extend .alert-success !optional
 }

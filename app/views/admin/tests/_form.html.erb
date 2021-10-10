@@ -1,22 +1,24 @@
 <%= form_with model: [:admin, @test], local: true do |form| %>
   <%= render 'shared/errors', resource: @test %>
 
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :test_title, size: 60 %>
-  </div><br>
+  <div class="ms-1 mb-1">
+    <p class="row">
+      <%= form.label :title, class: "col col-form-label", style: "max-width: 150px" %>
+      <%= form.text_field :title, id: :test_title, class: "form-control align-self-center", style: "max-width: 540px;" %>
+    </p>
 
-  <div>
-    <%= form.label :level %>
-    <%= form.text_field :level, id: :test_level, size: 6 %>
-  </div><br>
+    <p class="row">
+      <%= form.label :level, class: "col col-form-label", style: "max-width: 150px" %>
+      <%= form.text_field :level, id: :test_level, class: "form-control align-self-center", style: "max-width: 54px;" %>
+    </p>
 
-  <div>
-    <%= form.label :category_id %>
-    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true, size: 60 %>
-  </div><br>
+    <p class="row mb-3">
+      <%= form.label :category_id, class: "col col-form-label", style: "max-width: 150px" %>
+      <%= form.collection_select :category_id, Category.all, :id, :title, {prompt: true}, {class: "form-select", style: "max-width: 270px"} %>
+    </p>
 
-  <div>
-    <%= form.submit %>
-  </div><br>
+    <div>
+    <%= form.submit class: "btn btn-success" %>
+    </div>
+  </div>
 <% end %>

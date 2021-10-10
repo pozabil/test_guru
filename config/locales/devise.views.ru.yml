@@ -39,6 +39,12 @@ ru:
         one: "Администратор"
         other: "Администраторы"
   devise:
+    placeholders:
+      email: "Введите email"
+      password: "Введите пароль"
+      password_confirmation: "Повторите пароль"
+      first_name: "Введите имя"
+      last_name: "Введите фамилию"
     confirmations:
       confirmed: "Ваш адрес эл. почты успешно подтвержден."
       new:
