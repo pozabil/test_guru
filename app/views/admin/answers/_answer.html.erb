@@ -1,6 +1,6 @@
 <tr>
-  <td><%= answer.body %></td>
-  <td><%= answer.correct %></td>
-  <td><%= link_to t('edit'), edit_admin_answer_path(answer) %></td>
+  <td><em><%= answer.body %></em></td>
+  <td class=<%= "fw-bold" if answer.correct %>><%= answer.correct %></td>
+  <td><%= link_to t('edit'), edit_admin_answer_path(answer), class: "link-success" %></td>
   <td><%= delete_answer(answer) %></td>
 </tr>

@@ -3,7 +3,8 @@ module TestsHelper
     link_to t('delete'),
             admin_test_path(test),
             method: :delete,
-            data: { confirm: user_signed_in? ? t('helpers.tests_helper.delete_confirmation') : nil }
+            data: { confirm: user_signed_in? ? t('helpers.tests_helper.delete_confirmation') : nil },
+            class: "link-danger"
   end
 
   def test_level(test)

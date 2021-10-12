@@ -1,14 +1,25 @@
-<h1><%= t('.header', test_title: @question.test.title) %></h1>
-<div><strong><%= @question.body %></strong></div><br>
+<div class="row justify-content-center">
+  <div class="col col-lg-8 col-md-10 ms-1">
+    <div class="h1 mt-2 mb-4"><%= t('.header', test_title: @question.test.title) %></div>
 
-<%= render 'question_answers' %>
+    <div>
+      <p><b><%= @question.body %></b></p>
+    </div>
 
-<div>
-  <%= link_to t('.create_answer'), new_admin_question_answer_path(@question) %>
-</div><br>
+    <%= render 'question_answers' %>
 
-<div>
-  | <%= link_to t('back'), admin_test_path(@question.test) %>
-  | <%= link_to t('edit'), edit_admin_question_path(@question) %>
-  | <%= delete_question(@question) %> |
+    <div class="ms-2 fw-bold">
+      <%= link_to t('.create_answer'), new_admin_question_answer_path(@question), class: "fs-5 link-primary" %>
+    </div>
+
+    <table class="mt-2">
+      <tr>
+        <td><%= link_to t('back'), admin_test_path(@question.test), class: "link-secondary" %></td>
+        <td></td><td>|</td><td></td>
+        <td><%= link_to t('edit'), edit_admin_question_path(@question), class: "link-success" %></td>
+        <td></td><td>|</td><td></td>
+        <td><%= delete_question(@question) %></td>
+      </tr>
+    </table>
+  </div>
 </div>

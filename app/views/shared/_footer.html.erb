@@ -1,0 +1,15 @@
+<%
+author = 'pozabil'
+project_title = 'TestGuru'
+school_link = 'https://thinknetica.com/'
+%>
+
+<footer class="d-flex flex-wrap justify-content-center align-items-center p-4 mt-auto<%= " bg-admin" if admin_panel? %>">
+	<span class=<%= (admin_panel? ? "transparency-dark-text" : "transparency-light-text") %>><%= year %>
+		<%= t('.author_name') %>.
+		<%= t('.project') %>
+		<%= github_url(author, project_title) %>
+		<%= t('.project_description') %>.
+		<%= link_to t('.school_link_description'), school_link, class: (admin_panel? ? "link-light" : "link-primary") %>.
+	</span>
+</footer>

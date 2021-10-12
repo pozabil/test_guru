@@ -1,14 +1,14 @@
 <% if @question.answers.size > 0 %>
-<div>
-  <strong><%= t('.table_title', question_body: @question.body) %></strong><br>
-  <table>
-    <tr>
-      <th><b><%= t('.answer') %></b></th>
-      <th><b><%= t('.correct') %></b></th>
-      <th colspan='2'><b><%= t('.actions') %></b></th>
-    </tr>
+  <div>
+    <div class="fs-4 mt-2 mb-3"><b><%= t('.table_title', question_body: @question.body) %></b></div>
+    <table class="table table-hover text-wrap align-middle">
+      <tr>
+        <th scope="col"><%= t('.answer') %></th>
+        <th scope="col"><%= t('.correct') %></th>
+        <th scope="col", colspan='2'><%= t('.actions') %></th>
+      </tr>
 
-    <%= render @question.answers %>
-  </table>
-</div><br>
+      <%= render @question.answers %>
+    </table>
+  </div>
 <% end %>

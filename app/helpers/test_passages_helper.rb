@@ -8,6 +8,6 @@ module TestPassagesHelper
       end
 
     message = "#{passage_message} <font color=#{percent_color}>#{test_passage.percentage_result}%</font> !"
-    content_tag(:h1, message.html_safe)
+    message.html_safe
   end
 end

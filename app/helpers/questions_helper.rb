@@ -3,6 +3,7 @@ module QuestionsHelper
     link_to t('delete'),
             admin_question_path(question),
             method: :delete,
-            data: { confirm: t('helpers.questions_helper.delete_confirmation') }
+            data: { confirm: t('helpers.questions_helper.delete_confirmation') },
+            class: "link-danger"
   end
 end

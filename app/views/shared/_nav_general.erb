@@ -1,0 +1,21 @@
+<span class="navbar-inline ms-auto me-3">
+  <% if user_signed_in? %>
+    <span class="navbar-text">
+      Welcome, <%= content_tag :b, current_user.full_name,
+        class: (admin_panel? ? "text-light" : "text-primary") %> Guru
+    </span>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <span class="navbar-text">|</span>
+  <% end %>
+  <% if user_signed_in? && !current_page?(edit_user_registration_path) %>
+    <%= edit_user_link %>
+    <span class="navbar-text">|</span>
+  <% end %>
+  <%= user_signed_in? ? logout_link : login_link unless current_page?(new_user_session_path) %>
+  <% unless user_signed_in? || current_page?(new_user_registration_path) || current_page?(new_user_session_path) %>
+    <span class="navbar-text">|</span>
+  <% end %>
+  <%= signup_link unless user_signed_in? || current_page?(new_user_registration_path) %>
+</span>

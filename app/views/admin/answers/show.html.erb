@@ -1,13 +1,22 @@
-<h1><%= t('.header', question_body: @answer.question.body) %></h1>
-<div><strong><%= @answer.body %></strong></div><br>
+<div class="row justify-content-center">
+  <div class="col col-lg-8 col-md-10 ms-1">
+    <div class="h1 mt-2 mb-4"><%= t('.header', question_body: @answer.question.body) %></div>
 
-<div>
-  <%= @answer.correct ? t('.answer_correct') : t('.answer_not_correct') %>
-</div><br>
+    <div>
+      <p>
+        <b><%= @answer.body %></b> -
+        <%= @answer.correct ? t('.answer_correct') : t('.answer_not_correct') %>
+      </p>
+    </div>
 
-<div>
-  | <%= link_to t('back'), admin_question_path(@answer.question) %>
-  | <%= link_to t('edit'), edit_admin_answer_path(@answer) %>
-  | <%= delete_answer(@answer) %> |
+    <table class="mt-2">
+      <tr>
+        <td><%= link_to t('back'), admin_question_path(@answer.question), class: "link-secondary" %></td>
+        <td></td><td>|</td><td></td>
+        <td><%= link_to t('edit'), edit_admin_answer_path(@answer), class: "link-success" %></td>
+        <td></td><td>|</td><td></td>
+        <td><%= delete_answer(@answer) %></td>
+      </tr>
+    </table>
+  </div>
 </div>
-	

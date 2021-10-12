@@ -1,12 +1,14 @@
 <%= form_with model: [:admin, @test, @question], local: true do |form| %>
   <%= render 'shared/errors', resource: @question %>
 
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body, id: :question_body, size: '60x5' %>
-  </div><br>
+  <div class="ms-1 mb-1">
+    <p>
+      <%= form.label :body %>
+      <%= form.text_area :body, id: :question_body, class: "form-control", style: "resize:none; max-width: 540px; height: 8em;" %>
+    </p>
 
-  <div>
-    <%= form.submit %>
-  </div><br>
+    <div>
+      <%= form.submit class: "btn btn-success" %>
+    </div>
+  </div>
 <% end %>

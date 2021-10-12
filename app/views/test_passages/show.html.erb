@@ -1,24 +1,35 @@
-<h1><%= t('.header', title: @test_passage.test.title) %></h1>
+<div class="row justify-content-center">
+  <div class="col col-lg-8 ms-1">
+    <div class="h1 mt-2 mb-3"><%= t('.header', title: @test_passage.test.title) %></div>
 
-<div><%= t('.answer_the_question') %></div>
-<div><strong><%= @test_passage.current_question.body %></strong></div><br>
+    <div class="card border-secondary bg-light mb-2", style="max-width: 720px;">
+      <div class="card-body">
+        <div><%= t('.answer_the_question') %></div>
+        <p><b><%= @test_passage.current_question.body %></b></p>
 
-<div>
-  <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
-  	<%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
-  	<div>
-  	  <%= b.check_box id: "answer_ids_#{b.object.id}" %>
-  	  <%= b.label %>
-  	</div>
-  	<% end %><br>
+        <div>
+          <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+            <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
+              <div class="form-check mb-2">
+                <%= b.check_box id: "answer_ids_#{b.object.id}", class: 'form-check-input' %>
+                <%= b.label class: 'form-check-label' %>
+              </div>
+            <% end %>
 
-  	<div><%= form.submit t('.next_question') %></div>
-  <% end %>
-</div><br>
+            <div><%= form.submit t('.next_question'), class: "btn btn-outline-primary mt-2" %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
-<div>
-  <%= t('.current_question_number') %> <%= @test_passage.current_question_number %>,
-  <%= t('.questions_count') %> <%= @test_passage.test.questions.size %>
-</div><br>
+    <div class="card border-secondary bg-light mb-2", style="max-width: 400px">
+      <div class="card-body d-flex align-items-center", style="max-height: 2.5em;">
+        <div>
+        <%= t('.current_question_number') %> <b><%= @test_passage.current_question_number %>/<%= @test_passage.test.questions.size %></b>
+        </div>
+      </div>
+    </div>
 
-<%= link_to t('exit'), tests_path %>
+    <div class="ms-1"><%= link_to t('exit'), tests_path, class: "link-primary" %></div>
+  </div>
+</div>

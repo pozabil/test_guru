@@ -1,3 +1,6 @@
-<%= result_message(@test_passage) %>
-
-<%= link_to t('.back_to_tests'), tests_path %>
+<div class="row justify-content-center">
+  <div class="col col-lg-8 ms-1">
+    <div class="h3 mt-2 mb-3"><%= result_message(@test_passage) %></div>
+    <div class="ms-1"><%= link_to t('.back_to_tests'), tests_path, class: "link-primary" %></div>
+  </div>
+</div>

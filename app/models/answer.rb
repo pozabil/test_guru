@@ -9,6 +9,6 @@ class Answer < ApplicationRecord
   private
 
   def validate_number_of_answers
-    errors.add(:base, 'wrong number of answers') if question.answers.size >= 4
+    errors.add(:base, 'wrong number of answers') if question.answers.size > 4
   end
 end

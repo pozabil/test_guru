@@ -1,6 +1,6 @@
 <tr>
-  <td><%= question.body %></td>
-  <td><%= link_to t('open'), admin_question_path(question) %></td>
-  <td><%= link_to t('edit'), edit_admin_question_path(question) %></td>
+  <td><em><%= question.body %></em></td>
+  <td><%= link_to t('open'), admin_question_path(question), class: "link-secondary" %></td>
+  <td><%= link_to t('edit'), edit_admin_question_path(question), class: "link-success" %></td>
   <td><%= delete_question(question) %></td>
 </tr>
