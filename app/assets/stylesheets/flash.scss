@@ -9,3 +9,7 @@
 .flash-success {
   @extend .alert-success !optional
 }
+
+.flash-success_link {
+  @extend .alert-success !optional
+}

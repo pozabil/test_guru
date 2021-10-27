@@ -1,0 +1,5 @@
+<tr>
+  <td><%= link_to gist.question.body[0, 25], admin_question_path(gist.question), class: "link-primary" %></td>
+  <td><%= link_to gist.gist_id, gist_html_url(gist), class: "link-primary" %></td>
+  <td><%= gist.user.email %></td>
+</tr>

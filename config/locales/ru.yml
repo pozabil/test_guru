@@ -10,11 +10,17 @@ ru:
   edit: "Редактировать"
   delete: "Удалить"
   start: "Начать"
+  gists: "Список Gist'ов"
 
   errors:
     test_not_found: "<h1>ОШИБКА! ТЕСТ НЕ БЫЛ НАЙДЕН!</h1>"
     answer_not_found: "<h1>ОШИБКА! ОТВЕТ НЕ БЫЛ НАЙДЕН!</h1>"
     question_not_found: "<h1>ОШИБКА! ВОПРОС НЕ БЫЛ НАЙДЕН!</h1>"
+    test_passage_not_found: "<h1>ОШИБКА! ПРОХОЖДЕНИЕ ТЕСТА НЕ БЫЛО НАЙДЕНО!</h1>"
+
+  service:
+    gist_question_service:
+      question_in_test: "Вопрос в тесте \"%{test_title}\""
 
   helpers:
     submit:
@@ -77,6 +83,9 @@ ru:
       author_html: "<b>Автор:</b> %{author}"
 
   test_passages:
+    gist:
+      fail: "Не удалось сохранить вопрос в Gist"
+      success: "Посмотреть Gist"
     result:
       back_to_tests: "Вернуться к списку тестов"
     show:
@@ -85,6 +94,7 @@ ru:
       next_question: "Следующий вопрос"
       current_question_number: "Номер текущего вопроса:"
       questions_count: "общее количество вопросов в тесте:"
+      save_to_gist: "Сохранить в Gist"
 
   shared:
     errors:
@@ -116,6 +126,14 @@ ru:
         success: "Ответ \"%{answer_body}\" отредактирован"
       destroy:
         success: "Ответ \"%{answer_body}\" был удален"
+
+    gists:
+      index:
+        header: "Список Gist'ов"
+        question: "Вопрос"
+        gist_url: "Gist URL"
+        user: "Пользователь"
+
     nav:
       header: "Панель администратора"
 

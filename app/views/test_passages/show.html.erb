@@ -16,7 +16,10 @@
               </div>
             <% end %>
 
-            <div><%= form.submit t('.next_question'), class: "btn btn-outline-primary mt-2" %></div>
+            <div class="d-flex">
+              <div><%= form.submit t('.next_question'), class: "btn btn-outline-primary mt-2" %></div>
+              <div class="align-self-end ms-2"><%= link_to t('.save_to_gist'), gist_test_passage_path(@test_passage), method: :post, class: "btn btn-outline-secondary" %></div>
+            </div>
           <% end %>
         </div>
       </div>
