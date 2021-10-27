@@ -21,6 +21,7 @@ ru:
   service:
     gist_question_service:
       question_in_test: "Вопрос в тесте \"%{test_title}\""
+      correct_answer: " - корректный ответ"
 
   helpers:
     submit:

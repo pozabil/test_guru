@@ -27,8 +27,13 @@ class GistQuestionService
   end
 
   def gist_content
-    content = [@question.body, '']
-    content += @question.answers.pluck(:body)
+    answers = @question.answers.pluck(:body, :correct)
+    answers.map! do |answer|
+      answer[1] = answer[1] ? I18n.t('.service.gist_question_service.correct_answer') : ''
+      answer.join('')
+    end
+
+    content = [@question.body, '', answers]
     content.join("\n")
   end
 end

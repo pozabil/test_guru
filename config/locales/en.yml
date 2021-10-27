@@ -21,6 +21,7 @@ en:
   service:
     gist_question_service:
       question_in_test: "Question in the test \"%{test_title}\""
+      correct_answer: " - correct answer"
 
   helpers:
     submit:
