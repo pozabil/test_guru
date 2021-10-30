@@ -10,11 +10,18 @@ en:
   edit: "Edit"
   delete: "Delete"
   start: "Start"
+  gists: "Gist list"
 
   errors:
     test_not_found: "<h1>ERROR! TEST NOT FOUND!</h1>"
     answer_not_found: "<h1>ERROR! ANSWER NOT FOUND!</h1>"
     question_not_found: "<h1>ERROR! QUESTION NOT FOUND!</h1>"
+    test_passage_not_found: "<h1>ERROR! TEST PASSAGE NOT FOUND!</h1>"
+
+  service:
+    gist_question_service:
+      question_in_test: "Question in the test \"%{test_title}\""
+      correct_answer: " - correct answer"
 
   helpers:
     submit:
@@ -77,6 +84,9 @@ en:
       author_html: "<b>Author:</b> %{author}"
 
   test_passages:
+    gist:
+      fail: "Failed to save question to Gist"
+      success: "View Gist"
     result:
       back_to_tests: "Return to test list"
     show:
@@ -85,6 +95,7 @@ en:
       next_question: "Next question"
       current_question_number: "Current question number:"
       questions_count: "Total numbers of questions in the test:"
+      save_to_gist: "Save to Gist"
 
   shared:
     errors:
@@ -114,6 +125,14 @@ en:
         success: "Answer \"%{answer_body}\" successfully edited"
       destroy:
         success: "Answe \"%{answer_body}\" successfully deleted"
+
+    gists:
+      index:
+        header: "Gist list"
+        question: "Question"
+        gist_url: "Gist URL"
+        user: "User"
+
     nav:
       header: "Admin panel"
 

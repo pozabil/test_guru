@@ -5,7 +5,7 @@ module NavHelper
 
   def admin_panel
     link_to image_tag("admin_link.svg", alt: "Admin logo", height: "32"), admin_root_path,
-      class: ( "navbar-brand me-auto" + " svg-invert" if admin_panel? )
+      class: ( "navbar-brand" + " svg-invert" if admin_panel? )
   end
 
   def signup_link
@@ -26,5 +26,9 @@ module NavHelper
             method: :delete,
             data: { confirm: t('logout_confirm') },
             class: (admin_panel? ? "link-light" : "link-primary")
+  end
+
+  def gists_link
+    link_to t('gists'), admin_gists_path, class: "me-auto link-light"
   end
 end
