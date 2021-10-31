@@ -4,7 +4,11 @@
 
     <table class="table table-hover text-wrap align-middle">
       <tr>
-        <th scope="col"><%= t('.title') %></th>
+        <th scope="col", class="sort-by-title pointer">
+          <%= t('.title') %>
+          <%= octicon 'sort-asc', class: 'text-secondary d-none' %>
+          <%= octicon 'sort-desc', class: 'text-secondary d-none' %>
+        </th>
         <th scope="col"><%= t('.level') %></th>
         <th scope="col"><%= t('.category') %></th>
         <th scope="col", style="max-width: 96px;"><%= t('.questions_count') %></th>
