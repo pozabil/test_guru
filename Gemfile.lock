@@ -138,6 +138,11 @@ GEM
     nokogiri (1.12.3)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
+    octicons (16.1.1)
+    octicons_helper (16.1.1)
+      actionview
+      octicons (= 16.1.1)
+      railties
     octokit (4.21.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
@@ -256,6 +261,7 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 2.7)
   letter_opener
+  octicons_helper
   octokit (~> 4.0)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)

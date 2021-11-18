@@ -6,7 +6,7 @@
       <div class="card-body">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
-          <div class="mb-1">
+          <div class="mb-1 account_settings_form">
             <p>
               <%= f.label :first_name %>
               <%= f.text_field :first_name, autofocus: true, class: "form-control", placeholder: t('devise.placeholders.first_name')  %>
