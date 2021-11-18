@@ -14,7 +14,9 @@ function passwordComparison() {
 function fieldCompare(field1, fieldConfirmation) {
 	if (!fieldConfirmation.value) {
 		fieldConfirmation.classList.remove('border-danger', 'border-success', 'border-2')
-	} else if (field1.value == fieldConfirmation.value) {
+		return
+	}
+	if (field1.value == fieldConfirmation.value) {
 		fieldConfirmation.classList.remove('border-danger')
 		fieldConfirmation.classList.add('border-success', 'border-2')
 	} else {
