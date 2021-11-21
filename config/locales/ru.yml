@@ -8,6 +8,7 @@ ru:
   back: "Назад"
   exit: "Выйти"
   edit: "Редактировать"
+  cancel: "Отменить"
   delete: "Удалить"
   start: "Начать"
   gists: "Список Gist'ов"
@@ -187,6 +188,8 @@ ru:
         success: "Тест \"%{test_title}\" отредактирован"
       destroy:
         success: "Тест \"%{test_title}\" был удален"
+      form_inline:
+        submit: "ОК"
 
   users:
     sessions:

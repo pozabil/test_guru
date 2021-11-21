@@ -8,6 +8,7 @@ en:
   back: "Back"
   exit: "Exit"
   edit: "Edit"
+  cancel: "Cancel"
   delete: "Delete"
   start: "Start"
   gists: "Gist list"
@@ -185,6 +186,8 @@ en:
         success: "Test \"%{test_title}\" successfully edited"
       destroy:
         success: "Test \"%{test_title}\" successfully deleted"
+      form_inline:
+        submit: "OK"
 
   users:
     sessions:

@@ -21,6 +21,11 @@ Rails.application.routes.draw do
     root 'tests#index'
     
     resources :tests do
+      member do
+        patch :update_inline
+        get :update_inline, to: redirect('admin/')
+      end
+      
       resources :questions, except: :index, shallow: true do
         resources :answers, except: :index, shallow: true
       end
