@@ -1,10 +1,18 @@
 <tr>
-  <td><em><%= test.title %></em></td>
+  <td>
+    <%= content_tag :em, test.title, class: "test-title", data: { test_id: test.id } %>
+    <%= render 'form_inline' , test: test == @test ? @test : test %>
+  </td>
   <td><%= test_level(test) %></td>
   <td><%= test.category.title %></td>
   <td><%= test.questions.size %></td>
   <td><%= test.creator.full_name %></td>
   <td><%= link_to t('open'), admin_test_path(test), class: "link-secondary" %></td>
-  <td><%= link_to t('edit'), edit_admin_test_path(test), class: "link-success" %></td>
+  <td>
+    <%= link_to t('edit'), edit_admin_test_path(test),
+                data: { test_id: test.id, edit_text: t('edit'), cancel_text: t('cancel') },
+                class: "form-inline-link link-success" %>
+      
+  </td>
   <td><%= delete_test(test) %></td>
 </tr>

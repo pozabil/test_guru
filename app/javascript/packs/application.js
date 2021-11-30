@@ -10,6 +10,8 @@ import "channels"
 import "bootstrap"
 import "utilities/sorting"
 import "utilities/password_comparison"
+import "utilities/form_inline"
+import "utilities/custom_progress_bar"
 
 Rails.start()
 Turbolinks.start()
