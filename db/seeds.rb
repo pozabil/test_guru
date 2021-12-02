@@ -5,9 +5,9 @@
  User.destroy_all
 
 users = User.create!([
-  {name: 'Messi', email: 'loginho@mail.mail', password: '8arcelona'},
-  {name: 'Paul', email: 'paulig@cofee.mem', password: 'classic'},
-  {name: 'Khan-solo', email: 'falcon@x7.elon', password: 'wookie_is_love'},
+  {first_name: 'Messi', last_name: "Lopessi", email: 'loginho@mail.mail', password: '8arcelona'},
+  {first_name: 'Paul', last_name: "Atreidusik", email: 'paulig@cofee.mem', password: 'classic'},
+  {first_name: 'Khan-solo', last_name: "Pelmenev", email: 'falcon@x7.elon', password: 'wookie_is_love'},
 ])
 categories = Category.create!([
   {title: 'front-end'},
