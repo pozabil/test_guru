@@ -207,7 +207,7 @@ ru:
     create:
       success: "Ваше сообщение отправлено!"
   feedback_mailer:
-    send_message:
+    feedback_message:
       general_subject: "Форма обратной связи TestGuru"
       header: "Сообщение от пользователя сайта TestGuru"
       description: "Сообщение отправлено через форму обратной связи"

@@ -1,5 +1,5 @@
 class FeedbackMailer < ApplicationMailer
-  def send_message(feedback)
+  def feedback_message(feedback)
     @support_email = Admin.first.email
     @from = feedback[:from]
     @subject = feedback[:subject]
