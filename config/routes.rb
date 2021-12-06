@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :users, path_names: { sign_up: :signup, sign_in: :login, sign_out: :logout },
              controllers: { sessions: 'users/sessions' }
 
+  resource :feedback, only: [:new, :create]
+
   resources :tests, only: [:index, :show] do
     member do
       post :start
