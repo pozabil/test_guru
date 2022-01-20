@@ -7,18 +7,18 @@
         <%= form_with url: feedback_path , local: true do |form| %>
           <div class="mb-1">
             <p>
-              <%= form.label t('.form'), class: "form-label", style: "max-width: 150px" %>
-              <%= form.text_field :from, class: "form-control align-self-center", placeholder: t('devise.placeholders.email') %>
+              <%= form.label t('.from'), class: "form-label", style: "max-width: 150px" %>
+              <%= form.text_field :from, class: "form-control align-self-center", value: @previous_feedback_params[:from], placeholder: t('devise.placeholders.email') %>
             </p>
 
             <p>
               <%= form.label t('.subject'), class: "form-label", style: "max-width: 150px" %>
-              <%= form.text_field :subject, class: "form-control align-self-center" %>
+              <%= form.text_field :subject, class: "form-control align-self-center", value: @previous_feedback_params[:subject] %>
             </p>
 
             <p>
               <%= form.label t('.body'), class: "form-label", style: "max-width: 150px" %>
-              <%= form.text_area :body, class: "form-control align-self-center" , size: "1x5"%>
+              <%= form.text_area :body, class: "form-control align-self-center", value: @previous_feedback_params[:body], size: "1x5"%>
             </p>
 
             <div>

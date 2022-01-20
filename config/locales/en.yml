@@ -198,12 +198,13 @@ en:
   feedbacks:
     new:
       feedback: "Feedback form"
-      form: "Email"
+      from: "Email"
       subject: "Subject"
       body: "Message"
       submit: "Send"
     create:
       success: "Your message has been sent!"
+      fail: "Your message was not sent! Email must be correct and fields cannot be blank."
   feedback_mailer:
     feedback_message:
       general_subject: "TestGuru feedback form"

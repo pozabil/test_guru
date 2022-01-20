@@ -1,4 +1,5 @@
 <tr>
+  <% return if test.questions.size == 0 %>
   <td><em><%= test.title %></em></td>
   <td><%= test_level(test) %></td>
   <td><%= test.category.title %></td>
