@@ -111,6 +111,7 @@ ru:
       project: "Проект"
       project_description: "преднозначен для создания, управления и выполнения различных тестов"
       school_link_description: "Учебный проект в онлайн-школе Thinknetica"
+      feedback: "Обратная связь"
 
   admin:
     answers:
@@ -195,3 +196,22 @@ ru:
     sessions:
       create:
         hello: "Привет, %{full_name}!"
+
+  feedbacks:
+    new:
+      feedback: "Обратная связь"
+      from: "Электронная почта"
+      subject: "Тема"
+      body: "Сообщение"
+      submit: "Отправить"
+    create:
+      success: "Ваше сообщение отправлено!"
+      fail: "Ваше сообщение не было отправлено! Эл. почта должна быть корректной, а поля не могут быть пустыми."
+  feedback_mailer:
+    feedback_message:
+      general_subject: "Форма обратной связи TestGuru"
+      header: "Сообщение от пользователя сайта TestGuru"
+      description: "Сообщение отправлено через форму обратной связи"
+      from: "От"
+      subject: "Тема"
+      body: "Сообщение"

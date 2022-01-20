@@ -109,6 +109,7 @@ en:
       project: "Project"
       project_description: "is designed to create, manage and pass various tests"
       school_link_description: "Study project at Thinknetica online school"
+      feedback: "Contact"
 
   admin:
     answers:
@@ -193,3 +194,22 @@ en:
     sessions:
       create:
         hello: "Hello, %{full_name}!"
+
+  feedbacks:
+    new:
+      feedback: "Feedback form"
+      from: "Email"
+      subject: "Subject"
+      body: "Message"
+      submit: "Send"
+    create:
+      success: "Your message has been sent!"
+      fail: "Your message was not sent! Email must be correct and fields cannot be blank."
+  feedback_mailer:
+    feedback_message:
+      general_subject: "TestGuru feedback form"
+      header: "Message from Testguru user"
+      description: "This message was sent through the feedback form."
+      from: "From"
+      subject: "Subject"
+      body: "Message"
