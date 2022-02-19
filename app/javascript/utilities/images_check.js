@@ -7,7 +7,7 @@ function checkImages() {
 	if (checkedImageContainers.length) {
 		for (var i = 0; i < checkedImageContainers.length; i++) {
 			checkedImage = checkedImageContainers[i].querySelector('img')
-			checkedImage.onerror = function () { this.src = '/assets/images/no-image-error.svg' }
+			checkedImage.onerror = function () { this.src = '/errors/images/no-image-error.svg' }
 		}
 	}
 }

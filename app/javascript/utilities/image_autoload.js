@@ -8,7 +8,7 @@ function checkImageAutoload(control) {
 	let autoloadedImage = autoloadedImageContainer.querySelector('.autoloaded-image')
 	let oldImage = autoloadedImage.querySelector('img')
 
-	oldImage.onerror = function () { this.src = '/assets/images/no-image-error.svg' }
+	oldImage.onerror = function () { this.src = '/errors/images/no-image-error.svg' }
 
 	control.addEventListener('blur', function() { imageAutoload(control, autoloadedImage) })
 }
@@ -24,5 +24,5 @@ function imageAutoload(imagePathInput, autoloadedImage) {
 	updatedImage.height = "64"
 	autoloadedImage.replaceChild(updatedImage, oldImage)
 
-	updatedImage.onerror = function () { this.src = '/assets/images/no-image-error.svg' }
+	updatedImage.onerror = function () { this.src = '/errors/images/no-image-error.svg' }
 }
