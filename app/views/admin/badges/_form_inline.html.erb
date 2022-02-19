@@ -1,7 +1,7 @@
-<%= form_with model: [:admin, test],
-              url: update_inline_admin_test_path(test),
+<%= form_with model: [:admin, badge],
+              url: update_inline_admin_badge_path(badge),
               local: true,
-              data: { resource_id: test.id },
+              data: { resource_id: badge.id },
               class: "form-inline d-none row g-1" do |form| %>
   <div class="col-auto", style="margin-top: 0;"><%= form.text_field :title, class: "form-control", style: "width: 10.25em; height: 1.75em; margin-left: -0.75em;" %></div>
   <div class="col-auto", style="margin-top: 0"><%= form.submit t('.submit'), class: "btn btn-success", style: "height: 1.75em; padding: 0 0.5em;" %></div>

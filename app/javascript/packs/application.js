@@ -12,6 +12,9 @@ import "utilities/sorting"
 import "utilities/password_comparison"
 import "utilities/form_inline"
 import "utilities/custom_progress_bar"
+import "utilities/image_autoload"
+import "utilities/images_check"
+import "utilities/rule_selector"
 
 Rails.start()
 Turbolinks.start()

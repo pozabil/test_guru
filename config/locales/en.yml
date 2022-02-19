@@ -11,6 +11,7 @@ en:
   cancel: "Cancel"
   delete: "Delete"
   start: "Start"
+  continue: "Continue"
   gists: "Gist list"
 
   errors:
@@ -18,6 +19,7 @@ en:
     answer_not_found: "<h1>ERROR! ANSWER NOT FOUND!</h1>"
     question_not_found: "<h1>ERROR! QUESTION NOT FOUND!</h1>"
     test_passage_not_found: "<h1>ERROR! TEST PASSAGE NOT FOUND!</h1>"
+    badge_not_found: "<h1>ERROR! BADGE NOT FOUND!</h1>"
 
   service:
     gist_question_service:
@@ -35,6 +37,9 @@ en:
       test:
         create: "Create test"
         update: "Save test"
+      badge:
+        create: "Create badge"
+        update: "Save badge"
 
     label:
       answer:
@@ -46,6 +51,11 @@ en:
         title: "Test title:"
         level: "Test level:"
         category_id: "Test category:"
+      badge:
+        title: "Title:"
+        description: "Description:"
+        image_path: "Image path:"
+        rule: "Achievement rule:"
 
     select:
       prompt: "Please select"
@@ -58,6 +68,9 @@ en:
 
     tests_helper:
       delete_confirmation: "Are you sure you want to delete this test?"
+
+    badges_helper:
+      delete_confirmation: "Are you sure you want to delete this badge?"
 
     test_passages_helper:
       success: "Test \"%{test_title}\" has been successfully completed with a result of"
@@ -93,16 +106,44 @@ en:
     show:
       header: "Passing the \"%{title}\" test"
       answer_the_question: "Answer the question:"
+      complete_test: "Complete"
       next_question: "Next question"
       current_question_number: "Current question number:"
       questions_count: "Total numbers of questions in the test:"
       save_to_gist: "Save to Gist"
+    update:
+      badge_list_updated: "Your badge list has been updated!"
+
+  badges:
+    index:
+      header: "All badges list"
+      image: "Image"
+      title: "Title"
+      description: "Description"
+      action: "Action"
+      view_my_badges: "View my badges"
+    show:
+      description: "Description:"
+
+  user_badges:
+    index:
+      header: "My badges list"
+      image: "Image"
+      title: "Title"
+      description: "Description"
+      receiving_date: "Receiving date"
+      action: "Action"
+      view_all_badges: "View all badges"
+    show:
+      description: "Description:"
 
   shared:
     errors:
       header:
         one: "Fail. %{count} error detected."
         other: "Fail. %{count} errors detected."
+    nav:
+      view_badges: "View badges"
 
     footer:
       author_name: "Anton Guschin"
@@ -137,6 +178,7 @@ en:
 
     nav:
       header: "Admin panel"
+      badge_managment: "Badge managment"
 
     questions:
       new:
@@ -189,6 +231,35 @@ en:
         success: "Test \"%{test_title}\" successfully deleted"
       form_inline:
         submit: "OK"
+
+    badges:
+      index:
+        header: "Badge list"
+        image: "Image"
+        title: "Title"
+        description: "Description"
+        creator: "Creator"
+        actions: "Actions"
+        create_badge: "Create badge"
+      new:
+        header: "Creating a new badge"
+      edit:
+        header: "Editing the badge"
+      create:
+        success: "Badge \"%{badge_title}\" successfully created"
+      update:
+        success: "Badge \"%{badge_title}\" successfully edited"
+      destroy:
+        success: "Badge \"%{badge_title}\" successfully deleted"
+      form:
+        image: "Image:"
+        creator: "Creator:"
+      form_inline:
+        submit: "ОК"
+      form:
+        at_first_try: "Successfully complete test at first try"
+        success_by_category: "Successfully complete all tests of selected category"
+        success_by_level: "Successfully complete all tests of selected level"
 
   users:
     sessions:

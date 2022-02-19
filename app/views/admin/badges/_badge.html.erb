@@ -1,0 +1,19 @@
+<tr>
+  <td class="checked-image-container">
+    <%= image_tag (badge.image_path_is_correct? ? badge.image_path : ""), size: "64" %>
+  </td>
+  <td class="td-sort">
+    <%= content_tag :em, badge.title, class: "resource-title", data: { resource_id: badge.id } %>
+    <%= render 'form_inline' , badge: badge == @badge ? @badge : badge %>
+  </td>
+  <td><%= badge.description[0, 16] %></td>
+  <td><%= badge.creator.full_name %></td>
+  <td><%= link_to t('open'), edit_admin_badge_path(badge), class: "link-secondary" %></td>
+  <td>
+    <%= link_to t('edit'), edit_admin_badge_path(badge),
+                data: { resource_id: badge.id, edit_text: t('edit'), cancel_text: t('cancel') },
+                class: "form-inline-link link-success" %>
+      
+  </td>
+  <td><%= delete_badge(badge) %></td>
+</tr>

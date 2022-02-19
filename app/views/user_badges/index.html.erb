@@ -1,0 +1,24 @@
+<div class="row justify-content-center">
+  <div class="col col-lg-8 ms-1">
+    <div class="row justify-content-between h1 mt-2 mb-3">
+      <div class="col"><%= t('.header') %></div>
+      <div class="col-auto me-3"><%= view_all_badges_link %></div>
+    </div>
+
+    <table class="table table-hover text-wrap align-middle">
+      <tr>
+        <th scope="col"><%= t('.image') %></th>
+        <th scope="col", class="sort-by-title pointer">
+          <%= t('.title') %>
+          <%= octicon 'sort-asc', class: "text-secondary d-none" %>
+          <%= octicon 'sort-desc', class: "text-secondary d-none" %>
+        </th>
+        <th scope="col"><%= t('.description') %></th>
+        <th scope="col"><%= t('.receiving_date') %></th>
+        <th scope="col"><%= t('.action') %></th>
+      </tr>
+
+      <%= render @user_badges %>
+    </table>
+  </div>
+</div>

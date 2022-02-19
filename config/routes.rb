@@ -12,12 +12,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :test_passages, only: %i[show update] do
+  resources :test_passages, only: [:show, :update] do
     member do
       get :result
       post :gist
     end
   end
+
+  resources :badges, only: [:index, :show]
+  resources :user_badges, only: [:index, :show]
 
   namespace :admin do
     root 'tests#index'
@@ -34,5 +37,12 @@ Rails.application.routes.draw do
     end
 
     resources :gists, only: [:index]
+
+    resources :badges do
+      member do
+        patch :update_inline
+        get :update_inline, to: redirect('admin/badges')
+      end
+    end
   end
 end

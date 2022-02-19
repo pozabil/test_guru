@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :created_tests, class_name: 'Test', foreign_key: 'creator_id', inverse_of: 'creator'
   has_many :test_passages
   has_many :tests, through: :test_passages
+  has_many :created_badges, class_name: 'Badge', foreign_key: 'creator_id', inverse_of: 'creator'
+  has_many :user_badges
+  has_many :badges, through: :user_badges
   has_many :gists
 
   validates :first_name, presence: true
@@ -23,6 +26,14 @@ class User < ApplicationRecord
 
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)
+  end
+
+  def has_active_test?(test)
+    test_passage(test).present? && !test_passage(test).completed?
+  end
+
+  def what_try?(test)
+    test_passages.where(test_id: test.id).size
   end
 
   def admin?

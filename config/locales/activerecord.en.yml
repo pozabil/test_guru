@@ -4,6 +4,7 @@ en:
       answer: "Answer"
       questions: "Question"
       test: "Test"
+      badge: "Badge"
 
     attributes:
       test:
@@ -14,3 +15,9 @@ en:
         body: "Body"
       answer:
         body: "Body"
+      badge:
+        title: "Title"
+        description: "Description"
+        image_path: "Image path"
+        rule: "Achievement rule"
+        rule_condition: "Rule condition"

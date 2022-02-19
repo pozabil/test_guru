@@ -17,7 +17,7 @@
             <% end %>
 
             <div class="d-flex">
-              <div><%= form.submit t('.next_question'), class: "btn btn-outline-primary mt-2" %></div>
+              <div><%= form.submit ((@test_passage.current_question_number == @test_passage.test.questions.size) ? t('.complete_test') : t('.next_question')), class: "btn btn-outline-primary mt-2" %></div>
               <div class="align-self-end ms-2"><%= link_to t('.save_to_gist'), gist_test_passage_path(@test_passage), method: :post, class: "btn btn-outline-secondary" %></div>
             </div>
           <% end %>

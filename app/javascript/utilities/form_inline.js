@@ -14,22 +14,22 @@ document.addEventListener('turbolinks:load', function() {
 
 function formInlineLinkHandler(event) {
 	event.preventDefault()
-	let testId = this.dataset.testId
-	formInlineHandler(testId)
+	let resourceId = this.dataset.resourceId
+	formInlineHandler(resourceId)
 }
 
-function formInlineHandler(testId) {
-	let link = document.querySelector(`.form-inline-link[data-test-id="${testId}"]`)
-	let testTitle = document.querySelector(`.test-title[data-test-id="${testId}"]`)
-	let formInline = document.querySelector(`.form-inline[data-test-id="${testId}"]`)
+function formInlineHandler(resourceId) {
+	let link = document.querySelector(`.form-inline-link[data-resource-id="${resourceId}"]`)
+	let resourceTitle = document.querySelector(`.resource-title[data-resource-id="${resourceId}"]`)
+	let formInline = document.querySelector(`.form-inline[data-resource-id="${resourceId}"]`)
 
 	if (formInline.classList.contains('d-none')) {
 		formInline.classList.remove('d-none')
-		testTitle.classList.add('d-none')
+		resourceTitle.classList.add('d-none')
 		link.textContent = link.dataset.cancelText
 	} else {
 		formInline.classList.add('d-none')
-		testTitle.classList.remove('d-none')
+		resourceTitle.classList.remove('d-none')
 		link.textContent = link.dataset.editText
 	}
 }

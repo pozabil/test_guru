@@ -1,5 +1,6 @@
 <nav class="navbar navbar-light">
   <%= home_link %>
   <%= admin_panel if (current_user.present? && current_user.admin?) %>
+  <%= view_badges_link if current_user.present? %>
   <%= render 'shared/nav_general' %>
 </nav>
