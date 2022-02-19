@@ -3,7 +3,7 @@
     <%= image_tag (user_badge.badge.image_path_is_correct? ? user_badge.badge.image_path : ""), size: "64" %>
   </td>
   <td class="td-sort"><em><%= user_badge.badge.title %></em></td>
-  <td><%= user_badge.badge.description[0, 16] %></td>
+  <td><%= user_badge.badge.description[0, 16] %><%= "..." if user_badge.badge.description.length > 16 %></td>
   <td><%= user_badge.created_at.to_formatted_s(:long) %></td>
   <td><%= link_to t('open'), user_badge_path(user_badge), class: "btn btn-success" %></td>
 </tr>

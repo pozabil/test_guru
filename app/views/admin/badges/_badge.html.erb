@@ -6,7 +6,7 @@
     <%= content_tag :em, badge.title, class: "resource-title", data: { resource_id: badge.id } %>
     <%= render 'form_inline' , badge: badge == @badge ? @badge : badge %>
   </td>
-  <td><%= badge.description[0, 16] %></td>
+  <td><%= badge.description[0, 16] %><%= "..." if badge.description.length > 16 %></td>
   <td><%= badge.creator.full_name %></td>
   <td><%= link_to t('open'), edit_admin_badge_path(badge), class: "link-secondary" %></td>
   <td>
