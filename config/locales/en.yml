@@ -136,6 +136,7 @@ en:
       view_all_badges: "View all badges"
     show:
       description: "Description:"
+      receiving_date: "Receiving date"
 
   shared:
     errors:
@@ -260,6 +261,8 @@ en:
         at_first_try: "Successfully complete test at first try"
         success_by_category: "Successfully complete all tests of selected category"
         success_by_level: "Successfully complete all tests of selected level"
+        image: "Image:"
+        creator: "Creator:"
 
   users:
     sessions:

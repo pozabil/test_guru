@@ -12,8 +12,8 @@ document.addEventListener('turbolinks:load', function() {
 
 function ruleConditionSwitcher(ruleContainer) {
 	let ruleType = ruleContainer.querySelector('.rule-selector').value
-	let ruleConditionCategory = ruleContainer.querySelector('.rule-condition-category-selector')
-	let ruleConditionLevel = ruleContainer.querySelector('.rule-condition-level-field')
+	let ruleConditionCategory = ruleContainer.querySelector('.rule-condition-selector')
+	let ruleConditionLevel = ruleContainer.querySelector('.rule-condition-field')
 
 	if (ruleType == 'success_by_category') {
 		if (ruleConditionCategory) {
@@ -50,7 +50,7 @@ function ruleConditionSwitcher(ruleContainer) {
 }
 
 function ruleConditionLevelChecker(ruleContainer) {
-	let ruleConditionLevel = ruleContainer.querySelector('.rule-condition-level-field')
+	let ruleConditionLevel = ruleContainer.querySelector('.rule-condition-field')
 
 	ruleConditionLevel.addEventListener('change', function() { naturalNumberCheck(ruleConditionLevel) })
 }

@@ -18,7 +18,8 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
-      flash[:success] = t('.badge_list_updated') if UserBadge.check(@test_passage)
+      TestPassageCheckSuccessService.new(@test_passage).call
+      flash[:success] = t('.badge_list_updated') if UserBadgesUpdateService.new(@test_passage).call
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show

@@ -20,8 +20,8 @@
     <p class="row rule-selector-container">
       <%= form.label :rule, class: "col col-form-label", style: "max-width: 176px" %>
       <%= form.select :rule, Badge::RULE_TYPES.map{ |r_t| [t(".#{r_t}"), r_t] }, {prompt: true}, {class: "form-select align-self-center rule-selector", style: "max-width: 394px"} %>
-      <%= form.collection_select :rule_condition, Category.all, :title, :title, {prompt: true}, {class: "form-select align-self-center rule-condition-category-selector", style: "max-width: 118px"} %>
-      <%= form.text_field :rule_condition, id: :badge_rule_condition, class: "form-control align-self-center rule-condition-level-field", style: "max-width: 64px;" %>
+      <%= form.collection_select :rule_condition, Category.all, :title, :title, {prompt: true}, {class: "form-select align-self-center rule-condition-selector", style: "max-width: 118px"} %>
+      <%= form.text_field :rule_condition, id: :badge_rule_condition, class: "form-control align-self-center rule-condition-field", style: "max-width: 64px;" %>
     </p>
 
     <p class="row">

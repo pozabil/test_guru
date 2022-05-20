@@ -14,10 +14,6 @@ class Badge < ApplicationRecord
   validates :rule, inclusion: { in: RULE_TYPES }, allow_blank: true
   validates :rule_condition, format: { with: NATURAL_NUMBER_FORMAT }, if: :rule_condition_is_level?
 
-  # def belongs_to_user?(user)
-  #   !!user.badges.find_by(id: id)
-  # end
-
   def image_path_is_http?
     image_path.match?(IMAGE_PATH_HTTP_FORMAT)
   end

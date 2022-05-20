@@ -136,6 +136,7 @@ ru:
       view_all_badges: "Смотреть все бейджи"
     show:
       description: "Описание:"
+      receiving_date: "Дата получения"
 
   shared:
     errors:
@@ -262,6 +263,8 @@ ru:
         at_first_try: "Успешное прохождение теста с первого раза"
         success_by_category: "Успешное прохождение всех тестов категории"
         success_by_level: "Успешное прохождение всех тестов с уровнем сложности"
+        image: "Изображение:"
+        creator: "Создатель:"
 
   users:
     sessions:
