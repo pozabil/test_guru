@@ -10,53 +10,35 @@ class UserBadgesUpdateService
     previus_badges_quantity = @current_user.badges.size
 
     @all_badges.each do |badge|
-      @current_user.badges.push(badge) if (@test_passage.success? && send("#{badge.rule}_badge_check_success", badge))
+      @current_user.badges.push(badge) if send("#{badge.rule}_badge_check", badge)
     end
 
-    return true if @current_user.badges.size > previus_badges_quantity
+    return @current_user.badges.size > previus_badges_quantity
   end
 
   private
 
-  def at_first_try_badge_check_success(badge)
-    @current_user.first_try?(@current_test)
+  def at_first_try_badge_check(badge)
+    @test_passage.success? && @current_user.test_passages.where(test_id: @current_test.id).size == 1
   end
 
-  def success_by_category_badge_check_success(badge)
-    if @test_passage.test.category.title == badge.rule_condition
-      filtered_tests = Test.filter_by_category(badge.rule_condition)
-      return filtered_tests_complete_succesfully?(filtered_tests) ? true : false 
-    end
+  def success_by_category_badge_check(badge)
+    return false if !@test_passage.success? || @current_test.category.title != badge.rule_condition
+
+    all_filtered_tests = Test.joins(:questions).distinct.filter_by_category(badge.rule_condition)
+    passed_filtered_tests = passed_tests.filter_by_category(badge.rule_condition).uniq
+    return passed_filtered_tests.size == all_filtered_tests.size
   end
 
-  def success_by_level_badge_check_success(badge)
-    if @test_passage.test.level == badge.rule_condition.to_i
-      filtered_tests = Test.where(level: badge.rule_condition)
-      return filtered_tests_complete_succesfully?(filtered_tests) ? true : false
-    end
+  def success_by_level_badge_check(badge)
+    return false if !@test_passage.success? || @current_test.level != badge.rule_condition.to_i
+
+    all_filtered_tests = Test.joins(:questions).distinct.where(level: badge.rule_condition)
+    passed_filtered_tests = passed_tests.where(level: badge.rule_condition).uniq
+    return passed_filtered_tests.size == all_filtered_tests.size
   end
 
-  def filtered_tests_complete_succesfully?(filtered_tests)
-    if filtered_tests.present?
-      filtered_tests.each do |test|
-        if test.questions.size > 0
-          if @current_user.test_passage(test).present?
-            return false unless test_complete_succesfully?(test)
-          else
-            return false
-          end
-        end
-      end
-      return true
-    end
-  end
-
-  def test_complete_succesfully?(test)
-    all_tries = @current_user.test_passages.where(test_id: test.id)
-
-    all_tries.each do |try|
-      return true if try.success?
-    end
-    return false
+  def passed_tests
+    @current_user.tests.where(test_passages: { success: true })
   end
 end

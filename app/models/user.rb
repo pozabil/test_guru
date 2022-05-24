@@ -32,10 +32,6 @@ class User < ApplicationRecord
     test_passage(test).present? && !test_passage(test).completed?
   end
 
-  def first_try?(test)
-    test_passages.where(test_id: test.id).size == 1 ? true : false
-  end
-
   def admin?
     is_a?(Admin)
   end

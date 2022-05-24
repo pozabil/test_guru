@@ -5,5 +5,6 @@ class TestPassageCheckSuccessService
 
   def call
     @test_passage.success = true if @test_passage.success?
+    @test_passage.save!
   end
 end
