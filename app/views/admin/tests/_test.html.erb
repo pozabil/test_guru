@@ -1,6 +1,6 @@
 <tr>
-  <td>
-    <%= content_tag :em, test.title, class: "test-title", data: { test_id: test.id } %>
+  <td class="td-sort">
+    <%= content_tag :em, test.title, class: "resource-title", data: { resource_id: test.id } %>
     <%= render 'form_inline' , test: test == @test ? @test : test %>
   </td>
   <td><%= test_level(test) %></td>
@@ -10,7 +10,7 @@
   <td><%= link_to t('open'), admin_test_path(test), class: "link-secondary" %></td>
   <td>
     <%= link_to t('edit'), edit_admin_test_path(test),
-                data: { test_id: test.id, edit_text: t('edit'), cancel_text: t('cancel') },
+                data: { resource_id: test.id, edit_text: t('edit'), cancel_text: t('cancel') },
                 class: "form-inline-link link-success" %>
       
   </td>

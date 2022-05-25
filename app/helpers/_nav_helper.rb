@@ -29,6 +29,22 @@ module NavHelper
   end
 
   def gists_link
-    link_to t('gists'), admin_gists_path, class: "me-auto link-light"
+    link_to t('gists'), admin_gists_path, class: "ms-2 link-light"
+  end
+
+  def badge_managment_link
+    link_to t('.badge_managment'), admin_badges_path, class: "me-auto link-light"
+  end
+
+  def view_badges_link
+    link_to t('.view_badges'), user_badges_path, class: "ms-3 btn btn-outline-dark"
+  end
+
+  def view_my_badges_link
+    link_to t('.view_my_badges'), user_badges_path, class: "ms-3 btn btn-outline-danger"
+  end
+
+  def view_all_badges_link
+    link_to t('.view_all_badges'), badges_path, class: "ms-3 btn btn-outline-danger"
   end
 end

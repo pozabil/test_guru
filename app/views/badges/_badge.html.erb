@@ -1,0 +1,8 @@
+<tr>
+  <td class="checked-image-container">
+    <%= image_tag (badge.image_path_is_correct? ? badge.image_path : ""), size: "64" %>
+  </td>
+  <td class="td-sort"><em><%= badge.title %></em></td>
+  <td><%= badge.description[0, 16] %><%= "..." if badge.description.length > 16 %></td>
+  <td><%= link_to t('open'), badge_path(badge), class: "btn btn-success" %></td>
+</tr>

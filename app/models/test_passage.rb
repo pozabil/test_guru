@@ -22,7 +22,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    percentage_result >= WIN_PERCENTAGES
+    completed? && percentage_result >= WIN_PERCENTAGES
   end
 
   private
@@ -35,8 +35,8 @@ class TestPassage < ApplicationRecord
   end
 
   def before_update_next_question
-    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
-    self.current_question_number += 1
+    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first if self.current_question != nil
+    self.current_question_number = completed? ? nil : (current_question_number + 1)
   end
 
   def correct_answer?(answer_ids)

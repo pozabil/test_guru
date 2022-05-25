@@ -7,5 +7,5 @@
   <td><%= test.creator.full_name %></td>
   <td><%= link_to t('open'), test_path(test), class: "link-secondary" %></td>
   <td></td>
-  <td><%= button_to t('start'), start_test_path(test), class: "btn btn-success" %></td>
+  <td><%= start_or_continue_test_button(test) %></td>
 </tr>

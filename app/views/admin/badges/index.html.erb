@@ -1,0 +1,27 @@
+<div class="row justify-content-center">
+  <div class="col col-lg-9 ms-1">
+    <div class="h1 mt-2 mb-3"><%= t('.header') %></div>
+
+    <%= render 'shared/errors', resource: @badge %>
+
+    <table class="table table-hover text-wrap align-middle">
+      <tr>
+        <th scope="col"><%= t('.image') %></th>
+        <th scope="col", class="sort-by-title pointer">
+          <%= t('.title') %>
+          <%= octicon 'sort-asc', class: "text-secondary d-none" %>
+          <%= octicon 'sort-desc', class: "text-secondary d-none" %>
+        </th>
+        <th scope="col"><%= t('.description') %></th>
+        <th scope="col"><%= t('.creator') %></th>
+        <th scope="col", colspan='3'><%= t('.actions') %></th>
+      </tr>
+
+      <%= render @badges %>
+    </table>
+
+    <div class="ms-2 fw-bold">
+      <%= link_to t('.create_badge'), new_admin_badge_path, class: "fs-5 link-primary" %>
+    </div>
+  </div>
+</div>

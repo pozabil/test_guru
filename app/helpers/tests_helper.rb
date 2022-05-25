@@ -16,4 +16,11 @@ module TestsHelper
     }
     test_levels[test.level] || t('test_levels.heroic')
   end
+
+  def start_or_continue_test_button(test)
+    button_to ((current_user && current_user.has_active_test?(test)) ? t('continue') : t('start')),
+              start_test_path(test),
+              class: "btn #{((current_user && current_user.has_active_test?(test)) ? "btn-primary" : "btn-success")}",
+              style: "width: 8em;"
+  end
 end

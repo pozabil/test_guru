@@ -5,7 +5,11 @@ class TestPassagesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_passage_not_found
 
   def show
-    redirect_to result_test_passage_path(@test_passage) if @test_passage.completed?
+    if @test_passage.user == current_user
+      redirect_to result_test_passage_path(@test_passage) if @test_passage.completed?
+    else
+      redirect_to root_path
+    end
   end
 
   def result; end
@@ -14,6 +18,8 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
+      TestPassageCheckSuccessService.new(@test_passage).call
+      flash[:success] = t('.badge_list_updated') if UserBadgesUpdateService.new(@test_passage).call
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show

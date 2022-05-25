@@ -4,6 +4,7 @@ ru:
       answer: "Ответ"
       questions: "Вопрос"
       test: "Тест"
+      badge: "Бейдж"
 
     attributes:
       test:
@@ -14,3 +15,9 @@ ru:
         body: "Текст"
       answer:
         body: "Текст"
+      badge:
+        title: "Название"
+        description: "Описание"
+        image_path: "Путь изображения"
+        rule: "Правило получения"
+        rule_condition: "Условие правила"

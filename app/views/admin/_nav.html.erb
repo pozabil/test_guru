@@ -1,7 +1,10 @@
 <nav class="navbar navbar-dark bg-admin">
   <%= home_link %>
   <%= admin_panel if (current_user.present? && current_user.admin?) %>
-  <%= gists_link %>
-  <span class="navbar-text h3 text-light ms-4"><%= t('.header') %></span>
+  <div>
+    <%= badge_managment_link if (current_user.present? && current_user.admin?) %>
+    <%= gists_link if (current_user.present? && current_user.admin?) %>
+  </div>
+  <span class="navbar-text h3 text-light me-5 ms-auto"><%= t('.header') %></span>
   <%= render 'shared/nav_general' %>
 </nav>

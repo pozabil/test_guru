@@ -1,0 +1,41 @@
+<%= form_with model: [:admin, @badge], local: true do |form| %>
+  <%= render 'shared/errors', resource: @badge %>
+
+  <div class="ms-1 mb-1">
+    <p class="row">
+      <%= form.label :title, class: "col col-form-label", style: "max-width: 176px" %>
+      <%= form.text_field :title, id: :badge_title, class: "form-control align-self-center", style: "max-width: 512px;" %>
+    </p>
+
+    <p class="row">
+      <%= form.label :image_path, class: "col col-form-label", style: "max-width: 176px" %>
+      <%= form.text_field :image_path, id: :badge_image_path, class: "autoloaded-image-path form-control align-self-center", style: "max-width: 512px;" %>
+    </p>
+
+    <p class="row autoloaded-image-container">
+      <%= content_tag :label, t('.image'), class: "col align-self-center", style: "max-width: 176px" %>
+      <%= content_tag :span, (image_tag (@badge.image_path_is_correct? ? @badge.image_path : ""), size: "64"), class: "col ps-0 align-self-center autoloaded-image", style: "max-width: 512px;" %>
+    </p>
+
+    <p class="row rule-selector-container">
+      <%= form.label :rule, class: "col col-form-label", style: "max-width: 176px" %>
+      <%= form.select :rule, Badge::RULE_TYPES.map{ |r_t| [t(".#{r_t}"), r_t] }, {prompt: true}, {class: "form-select align-self-center rule-selector", style: "max-width: 394px"} %>
+      <%= form.collection_select :rule_condition, Category.all, :title, :title, {prompt: true}, {class: "form-select align-self-center rule-condition-selector", style: "max-width: 118px"} %>
+      <%= form.text_field :rule_condition, id: :badge_rule_condition, class: "form-control align-self-center rule-condition-field", style: "max-width: 64px;" %>
+    </p>
+
+    <p class="row">
+      <%= form.label :description, class: "col col-form-label", style: "max-width: 176px"%>
+      <%= form.text_area :description, id: :badge_description, class: "form-control align-self-center", style: "resize:none; max-width: 512px; height: 8em;" %>
+    </p>
+
+    <p class="row">
+      <%= content_tag :label, t('.creator'), class: "col align-self-center", style: "max-width: 176px" %>
+      <%= content_tag :b, (@badge.creator.present? ? @badge.creator.full_name : current_user.full_name) , class: "col ps-0 align-self-center", style: "max-width: 512px;" %>
+    </p>
+
+    <div>
+    <%= form.submit class: "btn btn-success" %>
+    </div>
+  </div>
+<% end %>

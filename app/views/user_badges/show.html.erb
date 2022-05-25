@@ -1,0 +1,32 @@
+<div class="row justify-content-center">
+  <div class="col col-lg-8 ms-1">
+    <div class="h1 mt-2 mb-4">
+      <span class="checked-image-container">
+        <%= image_tag (@user_badge.badge.image_path_is_correct? ? @user_badge.badge.image_path : ""), size: "64" %>
+      </span>
+      <span class="ms-2">
+        <%= @user_badge.badge.title %>
+      </span>
+    </div>
+
+    <div>
+      <p>
+        <div><b><%= t('.description') %></b></div>
+        <div><%= @user_badge.badge.description %></div>
+      </p>
+    </div>
+
+    <div>
+      <p>
+        <div><b><%= t('.receiving_date') %></b></div>
+        <div><%= @user_badge.created_at.to_formatted_s(:long) %></div>
+      </p>
+    </div>
+
+    <table>
+      <tr>
+        <td><%= link_to t('back'), user_badges_path, class: "link-secondary" %></td>
+      </tr>
+    </table>
+  </div>
+</div>

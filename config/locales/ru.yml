@@ -11,6 +11,7 @@ ru:
   cancel: "Отменить"
   delete: "Удалить"
   start: "Начать"
+  continue: "Продолжить"
   gists: "Список Gist'ов"
 
   errors:
@@ -18,6 +19,7 @@ ru:
     answer_not_found: "<h1>ОШИБКА! ОТВЕТ НЕ БЫЛ НАЙДЕН!</h1>"
     question_not_found: "<h1>ОШИБКА! ВОПРОС НЕ БЫЛ НАЙДЕН!</h1>"
     test_passage_not_found: "<h1>ОШИБКА! ПРОХОЖДЕНИЕ ТЕСТА НЕ БЫЛО НАЙДЕНО!</h1>"
+    badge_not_found: "<h1>ОШИБКА! БЕЙДЖ НЕ БЫЛ НАЙДЕН!</h1>"
 
   service:
     gist_question_service:
@@ -35,6 +37,9 @@ ru:
       test:
         create: "Создать тест"
         update: "Сохранить тест"
+      badge:
+        create: "Создать бейдж"
+        update: "Сохранить бейдж"
 
     label:
       answer:
@@ -46,6 +51,11 @@ ru:
         title: "Название теста:"
         level: "Уровень теста:"
         category_id: "Категория теста:"
+      badge:
+        title: "Название:"
+        description: "Описание:"
+        image_path: "Путь изображения:"
+        rule: "Правило получения:"
 
     select:
       prompt: "Пожалуйста выберите"
@@ -58,6 +68,9 @@ ru:
 
     tests_helper:
       delete_confirmation: "Вы действительно хотите удалить этот тест?"
+
+    badges_helper:
+      delete_confirmation: "Вы действительно хотите удалить этот бейдж?"
 
     test_passages_helper:
       success: "Тест \"%{test_title}\" успешно пройден с результатом"
@@ -93,10 +106,37 @@ ru:
     show:
       header: "Прохождение теста \"%{title}\""
       answer_the_question: "Ответьте на вопрос:"
+      complete_test: "Завершить"
       next_question: "Следующий вопрос"
       current_question_number: "Номер текущего вопроса:"
       questions_count: "общее количество вопросов в тесте:"
       save_to_gist: "Сохранить в Gist"
+    update:
+      badge_list_updated: "Список ваших бейджей был обновлен!"
+
+  badges:
+    index:
+      header: "Список всех бейджей"
+      image: "Изображение"
+      title: "Название"
+      description: "Описание"
+      action: "Действие"
+      view_my_badges: "Смотреть мои бейджи"
+    show:
+      description: "Описание:"
+
+  user_badges:
+    index:
+      header: "Список моих бейджей"
+      image: "Изображение"
+      title: "Название"
+      description: "Описание"
+      receiving_date: "Дата получения"
+      action: "Действие"
+      view_all_badges: "Смотреть все бейджи"
+    show:
+      description: "Описание:"
+      receiving_date: "Дата получения"
 
   shared:
     errors:
@@ -105,11 +145,13 @@ ru:
         few: "Неудачно. Обнаружены %{count} ошибки."
         many: "Неудачно. Обнаружены %{count} ошибок."
         other: "Неудачно. Обнаружены %{count} ошибки."
+    nav:
+      view_badges: "Смотреть бейджи"
 
     footer:
       author_name: "Антон Гущин"
       project: "Проект"
-      project_description: "преднозначен для создания, управления и выполнения различных тестов"
+      project_description: "предназначен для создания, управления и выполнения различных тестов"
       school_link_description: "Учебный проект в онлайн-школе Thinknetica"
       feedback: "Обратная связь"
 
@@ -139,6 +181,7 @@ ru:
 
     nav:
       header: "Панель администратора"
+      badge_managment: "Управление бейджами"
 
     questions:
       new:
@@ -191,6 +234,37 @@ ru:
         success: "Тест \"%{test_title}\" был удален"
       form_inline:
         submit: "ОК"
+
+    badges:
+      index:
+        header: "Список бейджей"
+        image: "Изображение"
+        title: "Название"
+        description: "Описание"
+        creator: "Создатель"
+        actions: "Действия"
+        create_badge: "Создать бейдж"
+      new:
+        header: "Создание бейджа"
+      edit:
+        header: "Редактирование бейджа"
+      create:
+        success: "Бейдж \"%{badge_title}\" успешно создан"
+      update:
+        success: "Бейдж \"%{badge_title}\" отредактирован"
+      destroy:
+        success: "Бейдж \"%{badge_title}\" был удален"
+      form:
+        image: "Изображение:"
+        creator: "Создатель:"
+      form_inline:
+        submit: "ОК"
+      form:
+        at_first_try: "Успешное прохождение теста с первого раза"
+        success_by_category: "Успешное прохождение всех тестов категории"
+        success_by_level: "Успешное прохождение всех тестов с уровнем сложности"
+        image: "Изображение:"
+        creator: "Создатель:"
 
   users:
     sessions:
