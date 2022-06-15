@@ -6,13 +6,16 @@ class TestPassagesController < ApplicationController
 
   def show
     if @test_passage.user == current_user
+      @test_passage.set_completed! if (@test_passage.test.timer > 0 && time_is_over?(@test_passage))
       redirect_to result_test_passage_path(@test_passage) if @test_passage.completed?
     else
       redirect_to root_path
     end
   end
 
-  def result; end
+  def result
+    redirect_to test_passage_path(@test_passage) unless @test_passage.completed?
+  end
 
   def update
     @test_passage.accept!(params[:answer_ids])
@@ -51,5 +54,9 @@ class TestPassagesController < ApplicationController
 
   def rescue_with_test_passage_not_found
     render inline: t('errors.test_passage_not_found')
+  end
+
+  def time_is_over?(test_passage)
+    test_passage.test.timer <= ((Time.now - test_passage.created_at)/1.minutes)
   end
 end

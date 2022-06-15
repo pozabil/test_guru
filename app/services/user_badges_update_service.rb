@@ -19,21 +19,21 @@ class UserBadgesUpdateService
   private
 
   def at_first_try_badge_check(badge)
-    @test_passage.success? && @current_user.test_passages.where(test_id: @current_test.id).size == 1
+    @test_passage.success && @current_user.test_passages.where(test_id: @current_test.id).size == 1
   end
 
   def success_by_category_badge_check(badge)
-    return false if !@test_passage.success? || @current_test.category.title != badge.rule_condition
+    return false if !@test_passage.success || @current_test.category.title != badge.rule_condition
 
-    all_filtered_tests = Test.joins(:questions).distinct.filter_by_category(badge.rule_condition)
+    all_filtered_tests = Test.where(correctness: true).distinct.filter_by_category(badge.rule_condition)
     passed_filtered_tests = passed_tests.filter_by_category(badge.rule_condition).uniq
     return passed_filtered_tests.size == all_filtered_tests.size
   end
 
   def success_by_level_badge_check(badge)
-    return false if !@test_passage.success? || @current_test.level != badge.rule_condition.to_i
+    return false if !@test_passage.success || @current_test.level != badge.rule_condition.to_i
 
-    all_filtered_tests = Test.joins(:questions).distinct.where(level: badge.rule_condition)
+    all_filtered_tests = Test.where(correctness: true).distinct.where(level: badge.rule_condition)
     passed_filtered_tests = passed_tests.where(level: badge.rule_condition).uniq
     return passed_filtered_tests.size == all_filtered_tests.size
   end

@@ -4,21 +4,28 @@
   <div class="ms-1 mb-1">
     <p class="row">
       <%= form.label :title, class: "col col-form-label", style: "max-width: 150px" %>
-      <%= form.text_field :title, id: :test_title, class: "form-control align-self-center", style: "max-width: 540px;" %>
+      <%= form.text_field :title, id: :test_title, class: "form-control", style: "max-width: 540px;" %>
     </p>
 
     <p class="row">
       <%= form.label :level, class: "col col-form-label", style: "max-width: 150px" %>
-      <%= form.text_field :level, id: :test_level, class: "form-control align-self-center", style: "max-width: 54px;" %>
+      <%= form.text_field :level, id: :test_level, class: "form-control", style: "max-width: 54px;" %>
     </p>
 
-    <p class="row mb-3">
+    <p class="row">
       <%= form.label :category_id, class: "col col-form-label", style: "max-width: 150px" %>
       <%= form.collection_select :category_id, Category.all, :id, :title, {prompt: true}, {class: "form-select", style: "max-width: 270px"} %>
     </p>
 
+    <p class="row timer-setter-container">
+      <%= form.label :timer, class: "col col-form-label", style: "max-width: 150px" %>
+      <%= form.check_box :timer_checkbox, id: :test_timer_checkbox, class: "mb-1 form-check-input align-self-center", style: "height: 1.6em; width: 1.6em" %>
+      <%= form.text_field :timer, id: :test_timer, class: "form-control", style: "max-width: 54px; margin-left: 12px;" %>
+      <%= form.label :minutes, id: :test_minutes_text, class: "col col-form-label", style: "max-width: 120px" %>
+    </p>
+
     <div>
-    <%= form.submit class: "btn btn-success" %>
+    <%= form.submit id: :submit_button, class: "btn btn-success" %>
     </div>
   </div>
 <% end %>

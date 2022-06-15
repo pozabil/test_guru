@@ -6,6 +6,7 @@
   <td><%= test_level(test) %></td>
   <td><%= test.category.title %></td>
   <td><%= test.questions.size %></td>
+  <td><%= timer_yes_or_no(test) %></td>
   <td><%= test.creator.full_name %></td>
   <td><%= link_to t('open'), admin_test_path(test), class: "link-secondary" %></td>
   <td>

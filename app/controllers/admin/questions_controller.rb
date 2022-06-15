@@ -14,6 +14,7 @@ class Admin::QuestionsController < Admin::BaseController
     @question = @test.questions.new(question_params)
 
     if @question.save
+      TestCorrectnessCheckService.new(@question.test).call
       flash[:success] = t('.success', question_body: @question.body)
       redirect_to [:admin, @question]
     else
@@ -25,6 +26,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   def update
     if @question.update(question_params)
+      TestCorrectnessCheckService.new(@question.test).call
       flash[:success] = t('.success', question_body: @question.body)
       redirect_to [:admin, @question]
     else
@@ -33,8 +35,12 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def destroy
-    @question.destroy
-    redirect_to [:admin, @question.test], alert: t('.success', question_body: @question.body)
+    if @question.destroy
+      TestCorrectnessCheckService.new(@question.test).call
+      redirect_to [:admin, @question.test], alert: t('.success', question_body: @question.body)
+    else
+      render :show
+    end
   end
 
   private

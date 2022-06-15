@@ -5,6 +5,7 @@
     <div>
       <p><%= t('.level_html', level: test_level(@test)) %></p>
       <p><%= t('.category_html', category: @test.category.title) %></p>
+      <p><%= t('.timer_html', timer: @test.timer) if @test.timer > 0 %></p>
       <p><%= t('.author_html', author: @test.creator.full_name) %></p>
     </div>
 

@@ -1,6 +1,4 @@
 class TestPassage < ApplicationRecord
-  WIN_PERCENTAGES = 85
-
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -17,12 +15,13 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
-  def percentage_result
-    ((correct_questions.to_f / test.questions.size) * 100).round(2)
+  def set_completed!
+    self.current_question = nil
+    save!
   end
 
-  def success?
-    completed? && percentage_result >= WIN_PERCENTAGES
+  def percentage_result
+    ((correct_questions.to_f / test.questions.size) * 100).round(2)
   end
 
   private

@@ -17,6 +17,10 @@ module TestsHelper
     test_levels[test.level] || t('test_levels.heroic')
   end
 
+  def timer_yes_or_no(test)
+    test.timer > 0 ? t('yes') : t('no')
+  end
+
   def start_or_continue_test_button(test)
     button_to ((current_user && current_user.has_active_test?(test)) ? t('continue') : t('start')),
               start_test_path(test),
