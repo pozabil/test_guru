@@ -6,6 +6,7 @@ class Test < ApplicationRecord
   has_many :users, through: :test_passages
 
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
+  validates :timer, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :title, presence: true, uniqueness: { scope: :level }
 
   scope :easy, -> { where(level: 0..1) }
@@ -15,5 +16,10 @@ class Test < ApplicationRecord
 
   def self.filtered_array_by_category(category)
     filter_by_category(category).order(title: :desc).distinct.pluck(:title)
+  end
+
+  def correct?
+    return false if questions.size == 0
+    !!questions.reverse_each { |q| return false if q.has_no_correct_answers? }
   end
 end

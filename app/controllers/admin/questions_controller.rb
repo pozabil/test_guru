@@ -33,8 +33,11 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def destroy
-    @question.destroy
-    redirect_to [:admin, @question.test], alert: t('.success', question_body: @question.body)
+    if @question.destroy
+      redirect_to [:admin, @question.test], alert: t('.success', question_body: @question.body)
+    else
+      render :show
+    end
   end
 
   private

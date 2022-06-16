@@ -7,6 +7,13 @@ module TestsHelper
             class: "link-danger"
   end
 
+  def publish_test(test)
+    button_to t('publish'),
+              publish_admin_test_path(test),
+              method: :patch,
+              class: "btn btn-success"
+  end
+
   def test_level(test)
     test_levels = {
       0 => t('test_levels.easy'),
@@ -15,6 +22,10 @@ module TestsHelper
       3 => t('test_levels.hard')
     }
     test_levels[test.level] || t('test_levels.heroic')
+  end
+
+  def timer_yes_or_no(test)
+    test.timer > 0 ? t('yes') : t('no')
   end
 
   def start_or_continue_test_button(test)

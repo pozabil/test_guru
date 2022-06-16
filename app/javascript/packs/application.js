@@ -15,6 +15,8 @@ import "utilities/custom_progress_bar"
 import "utilities/image_autoload"
 import "utilities/images_check"
 import "utilities/rule_selector"
+import "utilities/timer-setter"
+import "utilities/timer"
 
 Rails.start()
 Turbolinks.start()

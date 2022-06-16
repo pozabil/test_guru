@@ -1,4 +1,6 @@
 ru:
+  "yes": "Да"
+  "no": "Нет"
   login: "Войти"
   logout: "Выйти"
   signup: "Регистрация"
@@ -10,6 +12,7 @@ ru:
   edit: "Редактировать"
   cancel: "Отменить"
   delete: "Удалить"
+  publish: "Опубликовать"
   start: "Начать"
   continue: "Продолжить"
   gists: "Список Gist'ов"
@@ -51,6 +54,8 @@ ru:
         title: "Название теста:"
         level: "Уровень теста:"
         category_id: "Категория теста:"
+        timer: "Таймер теста:"
+        minutes: "(в минутах)"
       badge:
         title: "Название:"
         description: "Описание:"
@@ -90,11 +95,13 @@ ru:
       level: "Уровень"
       category: "Категория"
       questions_count: "Кол-во вопросов"
+      timer: "Таймер"
       author: "Автор"
       actions: "Действия"
     show:
       level_html: "<b>Уровень:</b> %{level}"
       category_html: "<b>Категория:</b> %{category}"
+      timer_html: "<b>Таймер (в минутах):</b> %{timer}"
       author_html: "<b>Автор:</b> %{author}"
 
   test_passages:
@@ -103,6 +110,7 @@ ru:
       success: "Посмотреть Gist"
     result:
       back_to_tests: "Вернуться к списку тестов"
+      start_again: "Начать заново"
     show:
       header: "Прохождение теста \"%{title}\""
       answer_the_question: "Ответьте на вопрос:"
@@ -110,7 +118,10 @@ ru:
       next_question: "Следующий вопрос"
       current_question_number: "Номер текущего вопроса:"
       questions_count: "общее количество вопросов в тесте:"
+      timer: "Таймер:"
       save_to_gist: "Сохранить в Gist"
+      badge_list_updated: "Список ваших бейджей был обновлен!"
+      time_is_over: "Время прохождения теста истекло!"
     update:
       badge_list_updated: "Список ваших бейджей был обновлен!"
 
@@ -210,6 +221,7 @@ ru:
         level: "Уровень"
         category: "Категория"
         questions_count: "Кол-во вопросов"
+        timer: "Таймер"
         author: "Автор"
         actions: "Действия"
         create_test: "Создать тест"
@@ -220,6 +232,7 @@ ru:
       show:
         level_html: "<b>Уровень:</b> %{level}"
         category_html: "<b>Категория:</b> %{category}"
+        timer_html: "<b>Таймер (в минутах):</b> %{timer}"
         author_html: "<b>Автор:</b> %{author}"
         create_question: "Создать новый вопрос"
       test_questions:
@@ -228,6 +241,9 @@ ru:
         actions: "Действия"
       create:
         success: "Тест \"%{test_title}\" успешно создан"
+      publish:
+        success: "Тест \"%{test_title}\" успешно опубликован"
+        incorrect: "Тест \"%{test_title}\" не является корректным"
       update:
         success: "Тест \"%{test_title}\" отредактирован"
       destroy:

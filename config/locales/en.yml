@@ -1,4 +1,6 @@
 en:
+  "yes": "Yes"
+  "no": "No"
   login: "Login"
   logout: "Logout"
   signup: "Signup"
@@ -10,6 +12,7 @@ en:
   edit: "Edit"
   cancel: "Cancel"
   delete: "Delete"
+  publish: "Publish"
   start: "Start"
   continue: "Continue"
   gists: "Gist list"
@@ -51,6 +54,8 @@ en:
         title: "Test title:"
         level: "Test level:"
         category_id: "Test category:"
+        timer: "Test timer:"
+        minutes: "(minutes)"
       badge:
         title: "Title:"
         description: "Description:"
@@ -90,11 +95,13 @@ en:
       level: "Level"
       category: "Category"
       questions_count: "Questions count"
+      timer: "Timer"
       author: "Author"
       actions: "Actions"
     show:
       level_html: "<b>Level:</b> %{level}"
       category_html: "<b>Category:</b> %{category}"
+      timer_html: "<b>Timer (minutes):</b> %{timer}"
       author_html: "<b>Author:</b> %{author}"
 
   test_passages:
@@ -103,6 +110,7 @@ en:
       success: "View Gist"
     result:
       back_to_tests: "Return to test list"
+      start_again: "Start again"
     show:
       header: "Passing the \"%{title}\" test"
       answer_the_question: "Answer the question:"
@@ -110,7 +118,10 @@ en:
       next_question: "Next question"
       current_question_number: "Current question number:"
       questions_count: "Total numbers of questions in the test:"
+      timer: "Timer:"
       save_to_gist: "Save to Gist"
+      badge_list_updated: "Your badge list has been updated!"
+      time_is_over: "Time for passing test has expired!"
     update:
       badge_list_updated: "Your badge list has been updated!"
 
@@ -208,6 +219,7 @@ en:
         level: "Level"
         category: "Category"
         questions_count: "Questions count"
+        timer: "Timer"
         author: "Author"
         actions: "Actions"
         create_test: "Create test"
@@ -218,6 +230,7 @@ en:
       show:
         level_html: "<b>Level:</b> %{level}"
         category_html: "<b>Category:</b> %{category}"
+        timer_html: "<b>Timer (minutes):</b> %{timer}"
         author_html: "<b>Author:</b> %{author}"
         create_question: "Create a new question"
       test_questions:
@@ -226,6 +239,9 @@ en:
         actions: "Actions"
       create:
         success: "Test \"%{test_title}\" successfully created"
+      publish:
+        success: "Test \"%{test_title}\" successfully published"
+        incorrect: "Test \"%{test_title}\" is incorrect"
       update:
         success: "Test \"%{test_title}\" successfully edited"
       destroy:

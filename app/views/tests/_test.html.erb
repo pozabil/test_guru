@@ -1,9 +1,10 @@
 <tr>
-  <% return if test.questions.size == 0 %>
+  <% return unless test.published %>
   <td><em><%= test.title %></em></td>
   <td><%= test_level(test) %></td>
   <td><%= test.category.title %></td>
   <td><%= test.questions.size %></td>
+  <td><%= timer_yes_or_no(test) %></td>
   <td><%= test.creator.full_name %></td>
   <td><%= link_to t('open'), test_path(test), class: "link-secondary" %></td>
   <td></td>

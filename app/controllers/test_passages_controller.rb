@@ -6,13 +6,23 @@ class TestPassagesController < ApplicationController
 
   def show
     if @test_passage.user == current_user
+
+      if (@test_passage.expired? && !@test_passage.completed?)
+        @test_passage.set_completed!
+        TestPassageCheckSuccessService.new(@test_passage).call
+        flash[:success] = t('.badge_list_updated') if UserBadgesUpdateService.new(@test_passage).call
+        flash[:alert] = t('.time_is_over')
+      end
+
       redirect_to result_test_passage_path(@test_passage) if @test_passage.completed?
     else
       redirect_to root_path
     end
   end
 
-  def result; end
+  def result
+    redirect_to test_passage_path(@test_passage) unless @test_passage.completed?
+  end
 
   def update
     @test_passage.accept!(params[:answer_ids])
