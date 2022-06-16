@@ -6,7 +6,14 @@ class TestPassagesController < ApplicationController
 
   def show
     if @test_passage.user == current_user
-      @test_passage.set_completed! if (@test_passage.test.timer > 0 && time_is_over?(@test_passage))
+
+      if (@test_passage.expired? && !@test_passage.completed?)
+        @test_passage.set_completed!
+        TestPassageCheckSuccessService.new(@test_passage).call
+        flash[:success] = t('.badge_list_updated') if UserBadgesUpdateService.new(@test_passage).call
+        flash[:alert] = t('.time_is_over')
+      end
+
       redirect_to result_test_passage_path(@test_passage) if @test_passage.completed?
     else
       redirect_to root_path
@@ -54,9 +61,5 @@ class TestPassagesController < ApplicationController
 
   def rescue_with_test_passage_not_found
     render inline: t('errors.test_passage_not_found')
-  end
-
-  def time_is_over?(test_passage)
-    test_passage.test.timer <= ((Time.now - test_passage.created_at)/1.minutes)
   end
 end

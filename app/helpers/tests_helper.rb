@@ -7,6 +7,13 @@ module TestsHelper
             class: "link-danger"
   end
 
+  def publish_test(test)
+    button_to t('publish'),
+              publish_admin_test_path(test),
+              method: :patch,
+              class: "btn btn-success"
+  end
+
   def test_level(test)
     test_levels = {
       0 => t('test_levels.easy'),

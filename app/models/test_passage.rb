@@ -15,6 +15,10 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
+  def expired?
+    test.timer > 0 && (test.timer <= ((Time.now - created_at)/1.minutes))
+  end
+
   def set_completed!
     self.current_question = nil
     save!

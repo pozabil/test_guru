@@ -17,4 +17,9 @@ class Test < ApplicationRecord
   def self.filtered_array_by_category(category)
     filter_by_category(category).order(title: :desc).distinct.pluck(:title)
   end
+
+  def correct?
+    return false if questions.size == 0
+    !!questions.reverse_each { |q| return false if q.has_no_correct_answers? }
+  end
 end

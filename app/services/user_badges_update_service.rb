@@ -25,7 +25,7 @@ class UserBadgesUpdateService
   def success_by_category_badge_check(badge)
     return false if !@test_passage.success || @current_test.category.title != badge.rule_condition
 
-    all_filtered_tests = Test.where(correctness: true).distinct.filter_by_category(badge.rule_condition)
+    all_filtered_tests = Test.where(published: true).distinct.filter_by_category(badge.rule_condition)
     passed_filtered_tests = passed_tests.filter_by_category(badge.rule_condition).uniq
     return passed_filtered_tests.size == all_filtered_tests.size
   end
@@ -33,7 +33,7 @@ class UserBadgesUpdateService
   def success_by_level_badge_check(badge)
     return false if !@test_passage.success || @current_test.level != badge.rule_condition.to_i
 
-    all_filtered_tests = Test.where(correctness: true).distinct.where(level: badge.rule_condition)
+    all_filtered_tests = Test.where(published: true).distinct.where(level: badge.rule_condition)
     passed_filtered_tests = passed_tests.where(level: badge.rule_condition).uniq
     return passed_filtered_tests.size == all_filtered_tests.size
   end

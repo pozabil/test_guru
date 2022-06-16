@@ -12,6 +12,7 @@ ru:
   edit: "Редактировать"
   cancel: "Отменить"
   delete: "Удалить"
+  publish: "Опубликовать"
   start: "Начать"
   continue: "Продолжить"
   gists: "Список Gist'ов"
@@ -79,7 +80,6 @@ ru:
     test_passages_helper:
       success: "Тест \"%{test_title}\" успешно пройден с результатом"
       failure: "Тест \"%{test_title}\" не пройден с результатом"
-      interruption: "Время прохождение теста \"%{test_title}\" вышло! Результат:"
 
   test_levels:
     easy: "Легкий"
@@ -120,6 +120,8 @@ ru:
       questions_count: "общее количество вопросов в тесте:"
       timer: "Таймер:"
       save_to_gist: "Сохранить в Gist"
+      badge_list_updated: "Список ваших бейджей был обновлен!"
+      time_is_over: "Время прохождения теста истекло!"
     update:
       badge_list_updated: "Список ваших бейджей был обновлен!"
 
@@ -239,6 +241,9 @@ ru:
         actions: "Действия"
       create:
         success: "Тест \"%{test_title}\" успешно создан"
+      publish:
+        success: "Тест \"%{test_title}\" успешно опубликован"
+        incorrect: "Тест \"%{test_title}\" не является корректным"
       update:
         success: "Тест \"%{test_title}\" отредактирован"
       destroy:

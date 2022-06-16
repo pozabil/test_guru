@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       member do
         patch :update_inline
         get :update_inline, to: redirect('admin/')
+        patch :publish
       end
       
       resources :questions, except: :index, shallow: true do

@@ -10,6 +10,7 @@ function timer(timerContainer) {
 	let timeleftInMinutes = timerContainer.querySelector('.test-timer').dataset.testTimerLeft
 	let timerZone = timerContainer.querySelector('.test-timer')
 	timerContainerSwitcher(timerContainer)
+	changeTimerColor(timeleftInMinutes, timerZone)
 	startTimer(timeleftInMinutes, timerZone)
 }
 

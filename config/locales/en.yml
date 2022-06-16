@@ -12,6 +12,7 @@ en:
   edit: "Edit"
   cancel: "Cancel"
   delete: "Delete"
+  publish: "Publish"
   start: "Start"
   continue: "Continue"
   gists: "Gist list"
@@ -79,7 +80,6 @@ en:
     test_passages_helper:
       success: "Test \"%{test_title}\" has been successfully completed with a result of"
       failure: "Test \"%{test_title}\" has been failed with a result of"
-      interruption: "Time for passing test \"%{test_title}\" has expired! Result:"
 
   test_levels:
     easy: "Easy"
@@ -120,6 +120,8 @@ en:
       questions_count: "Total numbers of questions in the test:"
       timer: "Timer:"
       save_to_gist: "Save to Gist"
+      badge_list_updated: "Your badge list has been updated!"
+      time_is_over: "Time for passing test has expired!"
     update:
       badge_list_updated: "Your badge list has been updated!"
 
@@ -237,6 +239,9 @@ en:
         actions: "Actions"
       create:
         success: "Test \"%{test_title}\" successfully created"
+      publish:
+        success: "Test \"%{test_title}\" successfully published"
+        incorrect: "Test \"%{test_title}\" is incorrect"
       update:
         success: "Test \"%{test_title}\" successfully edited"
       destroy:

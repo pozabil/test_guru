@@ -1,5 +1,5 @@
 class Admin::TestsController < Admin::BaseController
-  before_action :find_test, only: %i[show edit update destroy start update_inline]
+  before_action :find_test, only: %i[show edit publish update destroy start update_inline]
   before_action :find_tests, only: %i[index update_inline]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
@@ -24,6 +24,17 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def edit; end
+
+  def publish
+    if @test.correct?
+      @test.published = true
+      flash[:success] = t('.success', test_title: @test.title) if @test.save
+      redirect_to admin_tests_path
+    else
+      flash[:alert] = t('.incorrect', test_title: @test.title)
+      redirect_to [:admin, @test]
+    end
+  end
 
   def update
     if @test.update(test_params)
